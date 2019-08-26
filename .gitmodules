@@ -1,0 +1,6 @@
+[submodule "pythondata/ref/Python-100-Days"]
+	path = pythondata/ref/Python-100-Days
+	url = https://github.com/jackfrued/Python-100-Days.git
+[submodule "pythondata/ref/PythonDataScienceHandbook"]
+	path = pythondata/ref/PythonDataScienceHandbook
+	url = https://github.com/jakevdp/PythonDataScienceHandbook.git
