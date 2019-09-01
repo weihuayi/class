@@ -19,6 +19,14 @@
 1. Matplotlib 数据可视化 (4 节)
 1. 机器学习基础 (8 节)
 
+## 课件制作工具配置
+
+```
+sudo -H pip3 install jupyter_contrib_nbextensions 
+sudo jupyter contrib nbextension install
+sudo -H pip3 isntall RISE
+```
+
 
 ## 参考文献
 

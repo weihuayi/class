@@ -4,3 +4,6 @@
 [submodule "pythondata/ref/PythonDataScienceHandbook"]
 	path = pythondata/ref/PythonDataScienceHandbook
 	url = https://github.com/jakevdp/PythonDataScienceHandbook.git
+[submodule "pythondata/ref/pydata-book"]
+	path = pythondata/ref/pydata-book
+	url = https://github.com/wesm/pydata-book.git
