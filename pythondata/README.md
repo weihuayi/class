@@ -22,6 +22,7 @@
 ## 课件制作工具配置
 
 ```
+sudo apt install python3-notebook jupyter jupyter-core python-ipykernel
 sudo -H pip3 install jupyter_contrib_nbextensions 
 sudo jupyter contrib nbextension install
 sudo -H pip3 isntall RISE
