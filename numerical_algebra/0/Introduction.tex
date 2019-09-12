@@ -1,0 +1,372 @@
+
+\documentclass[notheorems,serif]{beamer}
+
+%选用主题
+%\usetheme{Rochester}
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}%
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%设置被cover的内容不显示
+%\setbeamercovered{transparent}
+
+\useinnertheme{rounded}
+\usecolortheme{default}
+
+%调用包
+\usepackage[no-math, cm-default]{fontspec}
+\usepackage{xltxtra}
+\usepackage{xunicode}   
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\usepackage{xeCJK}
+\usepackage{multimedia}
+\usepackage{listings}
+\usepackage{subfigure}
+\usepackage{todonotes}
+\presetkeys{todonotes}{inline}{} 
+\usepackage{multicol}
+\usepackage{changes}
+
+
+
+
+%将系统字体名映射为逻辑字体名称，主要是为了维护的方便  
+\newcommand\fnhei{Adobe 黑体 Std}  
+\newcommand\fnsong{Adobe 宋体 Std}  
+\newcommand\fnkai{Adobe 楷体 Std}  
+\newcommand\fnmono{DejaVu Sans Mono}  
+\newcommand\fnroman{Times New Roman}  
+
+\renewcommand{\normalsize}{\wuhao}
+
+%%设置常用中文字号，方便调用  
+\newcommand{\erhao}{\fontsize{22pt}{\baselineskip}\selectfont}  
+\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont}  
+\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}  
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}  
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}  
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}  
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}  
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}  
+\newcommand{\liuhao}{\fontsize{7.5pt}{\baselineskip}\selectfont}  
+
+%\setmainfont{\fnroman}
+\setmainfont{\fnkai}
+\setCJKmainfont[BoldFont=\fnhei]{\fnkai}  
+\setCJKsansfont[BoldFont=\fnhei]{\fnkai}  
+\setCJKmonofont{\fnkai}  
+
+%楷体  
+%\newfontinstance\KAI{\fnkai}  
+%\newcommand{\kai}[1]{{\KAI#1}}  
+%黑体  
+%\newfontinstance\HEI{\fnhei}  
+%\newcommand{\hei}[1]{{\HEI#1}}  
+%英文  
+%\newfontinstance\ENF{\fnroman}  
+%\newcommand{\en}[1]{\,{\ENF#1}\,}
+
+%楷体  
+\newfontfamily\KAI {\fnkai}  
+\newcommand{\kai}[1]{{\KAI#1}}  
+%黑体  
+\newfontfamily\HEI{\fnhei}  
+\newcommand{\hei}[1]{{\HEI#1}}  
+%英文  
+\newfontfamily\ENF{\fnroman}  
+\newcommand{\en}[1]{\,{\ENF#1}\,}
+
+
+%连字符
+\defaultfontfeatures{Mapping=tex-text}
+
+%中文断行
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+
+
+%%%% 定理类环境的定义 %%%%
+\newtheorem{example}{\hei{例子}} 
+\newtheorem{problem}{\hei{问题}}           
+\newtheorem{algorithm}{\hei{算法}}
+\newtheorem{theorem}{\hei{定理}}
+\newtheorem{definition}{\hei{定义}}
+\newtheorem{axiom}{\hei{公理}}
+\newtheorem{property}{\hei{性质}}
+\newtheorem{proposition}{\hei{命题}}
+\newtheorem{lemma}{\hei{引理}}
+\newtheorem{corollary}{\hei{推论}}
+\newtheorem{remark}{\hei{注解}}
+\newtheorem{condition}{\hei{条件}}
+\newtheorem{conclusion}{\hei{结论}}
+\newtheorem{assumption}{\hei{假设}}
+
+%重定义一些环境的名字
+\renewcommand{\proofname}{\hei{证明}}
+\renewcommand\tablename{\hei{表}}
+
+\input{pptheader.tex}
+
+\begin{document}
+
+\title[数值线性代数]{{\small\leftline{数值线性代数———}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~} \\
+矩阵计算
+}
+
+
+
+
+\author[]{~~易年余~~}
+
+\institute[湘潭大学数学系]
+
+\date[\today]
+
+%\pgfdeclareimage[height=1cm]{institution-logo}{figures/xtu.pdf}
+
+%\logo{\pgfuseimage{institution-logo}}
+
+
+\frame[plain]{\titlepage}
+
+
+\AtBeginSection[]{
+
+  \frame<beamer>{ 
+
+    \frametitle{内容纲要}   
+
+    \tableofcontents[currentsection] 
+
+  }
+}
+\section{课程主要内容}
+
+\begin{frame}
+\frametitle{课程主要内容}
+\begin{enumerate}
+	\item { 线性方程组的直接解法}.
+	\item { 线性最小二乘问题的数值算法}.
+	\item { 非对称矩阵的特征值计算}.
+	\item { 对称矩阵特征值计算与奇异值分解}.
+	\item { 线性方程组迭代算法}.
+	\item { 特征值问题的迭代算法 (部分特征值和特征向量)}. 
+	\item { 稀疏矩阵计算}.  
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{主要参考资料}
+\begin{enumerate}
+	\item { G. H. Golub and C. F. van Loan, “Matrix Computations (4th),” 2013.对应中文版为:《矩阵计算》(第三版), 袁亚湘等译, 2001.}.
+	\item { J. W. Demmel, “Applied Numerical Linear Algebra,” 1997.对应中文版为:《应用数值线性代数》, 王国荣译, 2007.}.
+	\item { L. N. Trefethen and D. Bau, III, “Numerical Linear Algebra,” 1997.对应中文版为:《数值线性代数》, 陆金甫等译, 2006.}.
+	\item { 徐树方, “矩阵计算的理论与方法,” 北京大学出版社, 1995.}.
+	\item { 曹志浩, “数值线性代数,” 复旦大学出版社, 1996.}. 
+\end{enumerate}
+
+课程主页：
+
+\qquad  http://math.ecnu.edu.cn/~jypan/Teaching/MatrixComp/
+
+\end{frame}
+
+
+\section{引言}
+\begin{frame}
+\frametitle{引言}
+计算数学, 也称 数值分析 或 计算方法.
+
+
+1947 年 Von Neumann 和 Goldstine 在《美国数学会通报》发表了题为“高阶矩阵的数值求逆”的著名论文, 开启了现代计算数学的研究
+
+
+一般来说, 计算数学主要研究如何求出数学问题的近似解 (数值解), 包括算法的设计与分析 (收敛性, 稳定性, 复杂性等)
+	
+计算数学主要研究内容:
+	
+数值逼近, 数值微积分, 数值代数, 微分方程数值解, 最优化等
+\end{frame}
+
+\begin{frame}
+\frametitle{为什么计算数学}
+科学计算是 20 世纪重要科学技术进步之一, 已与理论研究和实验研究相并列成为科学研究的第三种方法. 现今科学计算已是体现国家科学技术核心竞争力的重要标志, 是国家科学技术创新发展的关键要素。
+
+\qquad \qquad \qquad \qquad \qquad \qquad  —— 国家自然科学基金 · 重大项目指南, 2014
+
+计算科学是 21 世纪确保国家核心竞争能力的战略技术之一。
+
+\qquad \qquad \qquad \qquad \qquad \qquad    —— 计算科学: 确保美国竞争力，2005
+
+科学计算的核心/数学基础: 计算数学.
+\end{frame}
+
+\begin{frame}
+\frametitle{矩阵计算(数值线性代数)的重要性}
+If any other mathematical topic is as fundamental to the mathematical
+sciences as calculus and differential equations, it is numerical linear
+algebra.
+
+\qquad \qquad \qquad \qquad \qquad \qquad \qquad\qquad—— Trefethen and Bau, 1997.
+\end{frame}
+
+\begin{frame}
+国家自然科学基金委员会关于计算数学的分类 (2018):
+
+$\bullet$ 计算数学与科学工程计算 (A0117)
+
+\qquad- 偏微分方程数值解 (A011701)
+
+\qquad- 流体力学中的数值计算 (A011702)
+
+\qquad- 偏微分方程数值解 (A011701)
+
+\qquad- 流体力学中的数值计算 (A011702)
+
+\qquad- 一般反问题的计算方法 (A011703)
+
+\qquad- 常微分方程数值计算 (A011704)
+
+\qquad- 数值代数 (A011705)
+
+\qquad- 数值逼近与计算几何 (A011706)
+
+\qquad- 谱方法及高精度数值方法 (A011707)
+
+\qquad- 有限元和边界元方法 (A011708)
+
+\qquad- 多重网格技术与区域分解 (A011709)
+
+\qquad- 自适应方法 (A011720)
+
+\qquad- 并行计算 (A011711)
+\end{frame}
+
+\begin{frame}
+\frametitle{计算数学的主要任务}
+$\bullet$算法设计: 构造求解各种数学问题的数值方法
+
+$\bullet$算法分析: 收敛性、稳定性、复杂性、计算精度等
+
+$\bullet$算法实现: 编程实现、软件开发
+
+{\blue{好的数值方法一般需要满足以下几点：}}
+
+$\bullet$有可靠的理论分析, 即收敛性、稳定性等有数学理论保证
+
+$\bullet$有良好的计算复杂性 (时间和空间)
+
+$\bullet$易于在计算机上实现
+
+$\bullet$要有具体的数值试验来证明是行之有效的
+\end{frame}
+
+\begin{frame}
+\frametitle{矩阵计算基本问题}
+数值代数: 数值线性代数 (矩阵计算) 和数值非线性代数
+
+数值线性代数 (矩阵计算) 主要研究以下问题:
+
+\qquad$\bullet$线性方程组求解
+$$Ax=b,A \in R^{n \times n}\text{非奇异}$$
+
+\qquad$\bullet$(线性)最小二乘问题
+$$
+\min _{x \in \mathbb{R}^{n}}\|A x-b\|_{2} \quad, \quad A \in \mathbb{R}^{m \times n}, m \geq n
+$$
+
+\qquad$\bullet$矩阵特征值问题
+$$
+A x=\lambda x \quad, \quad A \in \mathbb{R}^{n \times n}, \lambda \in \mathbb{C}, x \in \mathbb{C}^{n}, x \neq 0
+$$
+
+\qquad$\bullet$矩阵奇异值问题
+$$
+A^{\top} A x=\sigma^{2} x \quad, \quad A \in \mathbb{R}^{m \times n}, \sigma \geq 0, x \in \mathbb{R}^{n}, x \neq 0
+$$
+
+\qquad$\bullet$其他问题：广义特征值问题, 二次特征值问题, 非线性特征值问题, 矩阵方程, 特征值反问题, 张量计算, . . . . . .
+
+	{$\dagger$} 数值方法一般都是近似方法, 求出的解是带有误差的,因此误差分析非常重要.
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{矩阵计算常用方法(技术或技巧)}
+\qquad$\bullet$矩阵分解
+
+\qquad$\bullet$矩阵分裂
+
+\qquad$\bullet$扰动分析
+
+{\red{$\dagger$}} 问题的特殊结构对算法的设计具有非常重要的影响.
+
+{\red{$\dagger$}} 在编程实现时, 要充分利用现有的优秀程序库.
+\end{frame}
+
+
+\setcounter{equation}{0}
+\frame{{二十世纪十大优秀算法}
+
+{\scriptsize
+\begin{enumerate}
+  \item { Monte Carlo method (1946)}.
+  \item { Simplex Method for Linear Programming (1947)}.
+  \item { Krylov Subspace Iteration Methods (1950)}.
+  \item { The Decompositional Approach to Matrix Computations (1951)}.
+  \item {The Fortran Optimizing Compiler (1957)}.
+  \item {QR Algorithm for Computing Eigenvalues (1959-61)}. 
+  \item { Quicksort Algorithm for Sorting (1962)}. 
+  \item {Fast Fourier Transform (1965)}.
+  \item {Integer Relation Detection Algorithm (1977)}.
+  \item {Fast Multipole Method (1987)}. 
+\end{enumerate}
+}
+}
+
+\end{document}

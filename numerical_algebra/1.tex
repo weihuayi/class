@@ -1,0 +1,950 @@
+
+\documentclass[notheorems,serif]{beamer}
+
+%选用主题
+%\usetheme{Rochester}
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}%
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%设置被cover的内容不显示
+%\setbeamercovered{transparent}
+
+\useinnertheme{rounded}
+\usecolortheme{default}
+
+%调用包
+\usepackage[no-math, cm-default]{fontspec}
+\usepackage{xltxtra}
+\usepackage{xunicode}   
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\usepackage{xeCJK}
+\usepackage{multimedia}
+\usepackage{listings}
+\usepackage{subfigure}
+\usepackage{todonotes}
+\presetkeys{todonotes}{inline}{} 
+\usepackage{multicol}
+\usepackage{changes}
+
+
+
+
+%将系统字体名映射为逻辑字体名称，主要是为了维护的方便  
+\newcommand\fnhei{Adobe 黑体 Std}  
+\newcommand\fnsong{Adobe 宋体 Std}  
+\newcommand\fnkai{Adobe 楷体 Std}  
+\newcommand\fnmono{DejaVu Sans Mono}  
+\newcommand\fnroman{Times New Roman}  
+
+\renewcommand{\normalsize}{\wuhao}
+
+%%设置常用中文字号，方便调用  
+\newcommand{\erhao}{\fontsize{22pt}{\baselineskip}\selectfont}  
+\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont}  
+\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}  
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}  
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}  
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}  
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}  
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}  
+\newcommand{\liuhao}{\fontsize{7.5pt}{\baselineskip}\selectfont}  
+
+%\setmainfont{\fnroman}
+\setmainfont{\fnkai}
+\setCJKmainfont[BoldFont=\fnhei]{\fnkai}  
+\setCJKsansfont[BoldFont=\fnhei]{\fnkai}  
+\setCJKmonofont{\fnkai}  
+
+%楷体  
+%\newfontinstance\KAI{\fnkai}  
+%\newcommand{\kai}[1]{{\KAI#1}}  
+%黑体  
+%\newfontinstance\HEI{\fnhei}  
+%\newcommand{\hei}[1]{{\HEI#1}}  
+%英文  
+%\newfontinstance\ENF{\fnroman}  
+%\newcommand{\en}[1]{\,{\ENF#1}\,}
+
+%楷体  
+\newfontfamily\KAI {\fnkai}  
+\newcommand{\kai}[1]{{\KAI#1}}  
+%黑体  
+\newfontfamily\HEI{\fnhei}  
+\newcommand{\hei}[1]{{\HEI#1}}  
+%英文  
+\newfontfamily\ENF{\fnroman}  
+\newcommand{\en}[1]{\,{\ENF#1}\,}
+
+
+%连字符
+\defaultfontfeatures{Mapping=tex-text}
+
+%中文断行
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+
+
+%%%% 定理类环境的定义 %%%%
+\newtheorem{example}{\hei{例子}} 
+\newtheorem{problem}{\hei{问题}}           
+\newtheorem{algorithm}{\hei{算法}}
+\newtheorem{theorem}{\hei{定理}}
+\newtheorem{definition}{\hei{定义}}
+\newtheorem{axiom}{\hei{公理}}
+\newtheorem{property}{\hei{性质}}
+\newtheorem{proposition}{\hei{命题}}
+\newtheorem{lemma}{\hei{引理}}
+\newtheorem{corollary}{\hei{推论}}
+\newtheorem{remark}{\hei{注解}}
+\newtheorem{condition}{\hei{条件}}
+\newtheorem{conclusion}{\hei{结论}}
+\newtheorem{assumption}{\hei{假设}}
+
+%重定义一些环境的名字
+\renewcommand{\proofname}{\hei{证明}}
+\renewcommand\tablename{\hei{表}}
+
+\input{pptheader.tex}
+
+\begin{document}
+
+\title[数值线性代数]{{\small\leftline{数值线性代数———}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~} \\
+矩阵计算
+}
+
+
+
+
+\author[]{~~易年余~~}
+
+\institute[湘潭大学数学系]
+
+\date[\today]
+
+%\pgfdeclareimage[height=1cm]{institution-logo}{figures/xtu.pdf}
+
+%\logo{\pgfuseimage{institution-logo}}
+
+
+\frame[plain]{\titlepage}
+
+
+\AtBeginSection[]{
+
+  \frame<beamer>{ 
+
+    \frametitle{线性代数基础}   
+
+    \tableofcontents[currentsection] 
+
+  }
+}
+\section{线性空间与内积空间}
+\begin{frame}
+\frametitle{计算数学的主要任务}
+$\bullet$数域, 如: Q, R, C
+
+$\bullet$线性空间, 如: $R^n,C^n,R^{m \times n}$
+
+$\bullet$线性相关与线性无关, 秩, 基, 维数
+
+$\bullet$线性子空间
+
+$\bullet$像空间 (列空间, 值域) Ran(A), 零空间 (核) Ker(A)
+
+$\bullet$张成子空间:$span\{x_1, x_2, . . . , x_k\}, span(A) = Ran(A)$
+\end{frame}
+\begin{frame}
+\frametitle{直和}
+设$S_1, S_2$是子空间, 若$S_1 + S_2$中的任一元素都可唯一表示成
+
+$$x = x_1 + x_2, x_1 \in S1, x2 \in S2,$$
+
+则称$S_1 + S_2$为直和, 记为$S_1 \oplus S_2$.
+
+
+\begin{theorem}
+	
+	设 $S_1$ 是 $S$ 的子空间, 则存在另一个子空间 $S_2$, 使得$$S = S_1 \oplus S_2.$$
+	
+\end{theorem}
+
+{\bfseries  例：} \quad 设$A \in \mathbb{C}^{m \times n}$, 则
+$$\mathbb{C}^{n}=\operatorname{Ker}(A) \oplus \operatorname{Ran}\left(A^{*}\right), \quad \mathbb{C}^{m}=\operatorname{Ker}\left(A^{*}\right) \oplus \operatorname{Ran}(A)$$ 
+\end{frame}
+
+\begin{frame}
+\frametitle{内积空间}
+\qquad$\bullet$内积, 内积空间, 欧氏空间, 酉空间
+ 
+\qquad$\bullet$常见内积空间:
+ 
+ \qquad\qquad - $C^{n} : (x, y) = y∗x$
+ 
+ \qquad\qquad - $R^{n} : (x, y) = y^{T}x$
+ 
+ \qquad\qquad - $R^{m \times n} : (A, B) = tr(B^{T}A)$
+ 
+ 正交与正交补：
+ 
+\qquad$\bullet$正交: 向量正交, 子空间正交
+ 
+\qquad$\bullet$正交补空间
+\end{frame}
+
+\section{向量范数与矩阵范数}
+\begin{frame}
+\frametitle{向量范数与矩阵范数}
+\begin{definition}(向量范数)
+	若函数$f : C^n \to R $满足
+	
+	(1) $f(x) \geq 0, ∀ x \in C^n$, 等号当且仅当 $x = 0$ 时成立;
+	
+	(2) $f(\alpha x) = |\alpha| · f(x), ∀ x \in C^{n}, α \in C;$
+	
+	(3) $f(x + y) \leq f(x) + f(y), ∀x, y \in C^{n};$
+	
+	则称 f(x) 为$C^{n}$上的范数, 通常记作 $|| \cdot ||$
+\end{definition}
+
+相类似地，我们可以定义实数空间$R^n$上的向量范数。
+\end{frame}
+
+\begin{frame}
+
+\frametitle{常见的向量范数}
+$\bullet$ 1-范数:$||x||_1=|x_1|+|x_2|+...+|x_n|$
+
+$\bullet$ 2-范数:$||x||_2=\sqrt{|x_1|^2+|x_2|^2+...+|x_n|^2}$
+
+$\bullet$ ∞-范数:$\|x\|_{\infty}=\max _{1 \leq i \leq n}\left|x_{i}\right|$
+
+$\bullet$ p-范数:$\|x\|_{p}=\left(\sum_{i=1}^{n}\left|x_{i}\right|^{p}\right)^{1 / p}, \quad 1 \leq p<\infty$
+\end{frame}
+
+\begin{frame}
+\frametitle{常见的向量范数}
+\begin{definition}(范数等价性)
+	$\mathbb{C}^{n}$上的向量范数$||\cdot||_{\alpha}$与$||\cdot||_{\beta}$等价: 存在正常数$c_1, c_2,$使得
+	$$c_{1}\|x\|_{\alpha} \leq\|x\|_{\beta} \leq c_{2}\|x\|_{\alpha}, \quad \forall x \in \mathbb{C}^{n}$$
+\end{definition}
+
+\begin{theorem}
+	$\mathbb{C}^{n}$空间上的所有向量范数都是等价的, 特别地, 有
+	$$
+	\|x\|_{2} \leq\|x\|_{1} \leq \sqrt{n}\|x\|_{2}
+	$$
+	$$
+	\|x\|_{\infty} \leq\|x\|_{2} \leq \sqrt{n}\|x\|_{\infty}
+	$$
+	$$
+	\|x\|_{\infty} \leq\|x\|_{1} \leq n\|x\|_{\infty}
+	$$
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{常见的向量范数}
+\begin{theorem}(Cauchy-Schwartz不等式)
+	设$(.,.)$是$\mathbb{C}^{n}$上的内积，则对任意$x,y \in \mathbb{C}^{n}$,有
+	$$
+	|(x, y)|^{2} \leq(x, x) \cdot(y, y)
+	$$
+\end{theorem}
+
+\begin{corollary}
+	设$(.,.)$是$\mathbb{C}^{n}$上的内积，则$||x||\triangleq \sqrt{(x,x)}$是$\mathbb{C}^{n}$上的一个向量范数
+\end{corollary}
+
+\begin{theorem}
+	设$||\cdot||$是$\mathbb{C}^{n}$上的一个向量范数，则$f(x)\triangleq||x||$是$\mathbb{C}^{n}$上的连续函数。
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{矩阵范数}
+\begin{definition}(矩阵范数)
+	若函数$f : \mathbb{C}^{n \times n} \to R$ 满足
+	
+	$(1) f(A) \geq 0, \forall  A \in \mathbb{C}^{n \times n},$ 等号当且仅当 $A = 0$时成立;
+	
+	$(2) f(\alpha A) = |\alpha| · f(A), ∀ A \in \mathbb{C}^{n\times n}, α \in \mathbb{C};$
+	
+	$(3) f(A + B) \leq f(A) + f(B), \forall A, B \in \mathbb{C}^{n \times n};$
+	则称 $f(x) $为$\mathbb{C}
+	^{n \times n} $上的范数, 通常记作 $|| \cdot ||$。
+\end{definition}
+
+相容的矩阵范数：$f(AB) \leq f(A)f(B), \forall A, B \in  \mathbb{C}^{n \times n}$。
+
+若未明确指出, 讲义所涉及矩阵范数都指相容矩阵范数
+\end{frame}
+
+\begin{frame}
+\frametitle{矩阵范数}
+\begin{lemma}
+	设 $∥ · ∥ $是 $C^{n}$上的向量范数, 则
+	$$
+	\|A\| \triangleq \sup _{x \in \mathbb{C}^{n}, x \neq 0} \frac{\|A x\|}{\|x\|}=\max _{\|x\|=1}\|A x\|
+	$$
+	是$\mathbb{C}
+	^{n \times n} $上的范数, 称为算子范数, 或诱导范数, 导出范数。
+\end{lemma}
+
+ 算子范数都是相容的, 且$$ \|A x\| \leq\|A\| \cdot\|x\|, \quad A \in \mathbb{C}^{n \times n}, x \in \mathbb{C}^{n}$$
+
+ 类似地, 我们可以定义$\mathbb{C}^{m \times n}, \mathbb{R}^{n \times n}, \mathbb{R}^{m \times n}$上的矩阵范数.
+\end{frame}
+
+\begin{frame}
+\frametitle{矩阵范数}
+\begin{lemma}
+	可以证明:
+	
+	(1) 1-范数 (列范数):$\|A\|_{1}=\max _{1 \leq j \leq n}\left(\sum_{i=1}^{n}\left|a_{i j}\right|\right)$
+	
+	(2) ∞-范数 (行范数): $\|A\|_{\infty}=\max _{1 \leq i \leq n}\left(\sum_{j=1}^{n}\left|a_{i j}\right|\right)$
+	
+	(3) 2-范数 (谱范数):$\|A\|_{2}=\sqrt{\rho\left(A^{\top} A\right)}$
+	
+\end{lemma}
+
+另一个常用范数 F-范数 $\|A\|_{F}=\sqrt{\sum_{i=1}^{n} \sum_{j=1}^{n}\left|a_{i j}\right|^{2}}$
+\end{frame}
+
+\begin{frame}
+\frametitle{矩阵范数}
+\begin{theorem}(矩阵范数的等价性)
+	$\mathbb{R}^{n×n}$空间上的所有范数都是等价的, 特别地, 有
+	$$
+	\frac{1}{\sqrt{n}}\|A\|_{2} \leq\|A\|_{1} \leq \sqrt{n}\|A\|_{2},
+	$$
+	$$
+	\frac{1}{\sqrt{n}}\|A\|_{2} \leq\|A\|_{\infty} \leq \sqrt{n}\|A\|_{2},
+	$$
+	$$
+	\frac{1}{n}\|A\|_{\infty} \leq\|A\|_{1} \leq n\|A\|_{\infty}
+	,
+	$$
+	$$
+	\frac{1}{\sqrt{n}}\|A\|_{1} \leq\|A\|_{F} \leq \sqrt{n}\|A\|_{2}
+	,
+	$$
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{矩阵范数的一些性质}
+$\bullet$对任意的算子范数$||.||$,有$||I|| = 1$
+
+$\bullet$对任意的相容范数$||.||$,有$||I|| \leq 1$ 
+
+$\bullet$F-范数是相容的, 但不是算子范数
+
+$\bullet$$||.||_2$和$||.||_F$酉不变范数
+
+$\bullet$ $\left\|A^{\top}\right\|_{2}=\|A\|_{2},\left\|A^{\top}\right\|_{1}=\|A\|_{\infty}$
+
+$\bullet$若$A$是正规矩阵, 则$\|A\|_{2}=\rho(A)$
+\end{frame}
+
+\begin{frame}
+\frametitle{向量序列的收敛}
+设${x^{(k)}}^{\inf}_{
+	k=1}$是$\mathbb{C}^n $中的一个向量序列, 如果存在 $x \in \mathbb{C}^n$, 使得
+$$
+\lim _{k \rightarrow \infty} x_{i}^{(k)}=x_{i}, \quad i=1,2, \ldots, n
+$$
+则称${x^{(k)}}$(按分量)收敛到 x, 记为$\lim _{k \rightarrow \infty} x^{(k)}=x$
+
+\begin{theorem}(矩阵范数的等价性)
+	设$||.||$是$\mathbb{C}^{n}$上的任意一个向量范数, 则$\lim _{k \rightarrow \infty} x^{(k)}=x$的充要条件是
+	$$
+	\lim _{k \rightarrow \infty}\left\|x^{(k)}-x\right\|=0
+	$$
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{收敛速度}
+设点列${εk}_{k=1}^{\inf}$收敛, 且$\lim _{k=\infty} \varepsilon_{k}=0$. 若存在一个有界常数 $0 < c < ∞$, 使得
+
+$\lim _{k \rightarrow \infty} \frac{\left|\varepsilon_{k+1}\right|}{\left|\varepsilon_{k}\right|^{p}}=c$
+
+则称点列 ${ε_k} $是 $p$ 次 (渐进) 收敛的. 若$ 1 < p < 2$ 或$ p = 1 $且 $c = 0,$ 则称点列是超线性收敛的.
+
+$†$ 类似地, 我们可以给出矩阵序列的收敛性和判别方法.
+\end{frame}
+
+\section{矩阵与投影}
+\begin{frame}
+\frametitle{特征值与特征向量}
+$\bullet$特征多项式, 特征值, 特征向量, 左特征向量, 特征对
+
+$\bullet$n 阶矩阵 A 的谱: $σ(A) ≜ {λ1, λ2, . . . , λn}$
+
+$\bullet$代数重数和几何重数, 特征空间
+
+$\bullet$最小多项式
+
+$\bullet$可对角化, 特征值分解
+
+$\bullet$可对角化的充要条件
+
+$\bullet$特征值估计: Bendixson 定理, 圆盘定理
+\end{frame}
+
+\begin{frame}
+\frametitle{Bendixson定理}
+设$A \in \mathbb{C}^{n \times n}$,令$H=\frac{1}{2}\left(A+A^{*}\right), S=\frac{1}{2}\left(A-A^{*}\right)$.则有
+$$
+\begin{array}{l}{\lambda_{\min }(H) \leq \operatorname{Re}(\lambda(A)) \leq \lambda_{\max }(H)} \\ {\lambda_{\min }(i S) \leq \operatorname{Im}(\lambda(A)) \leq \lambda_{\max }(i S)}\end{array}
+$$
+其中$Re(.)$和$Im(.)$分别表示实部和虚部。
+
+
+† 一个矩阵的特征值的实部的取值范围由其 Hermite 部分确定, 而虚
+部则由其 Skew-Hermite 部分确定.
+\end{frame}
+
+\begin{frame}
+\frametitle{Gerschgorin圆盘定理}
+设$A=\left[a_{i j}\right] \in \mathbb{C}^{n \times n}$，定义集合
+$$
+\mathcal{D}_{i} \triangleq\left\{z \in \mathbb{C} :\left|z-a_{i i}\right| \leq \sum_{j=1, j \neq i}^{n}\left|a_{i j}\right|\right\}, \quad i=1,2, \ldots, n
+$$
+这就是A的n个Gerschgorin圆盘。
+
+
+\begin{theorem}(Gerschgorin圆盘定理)
+	设$A=\left[a_{i j}\right] \in \mathbb{C}^{n \times n}$. 则 A 的所有特征值都包含在 A 的 Gerschgorin 圆盘的并集中, 即$\sigma(A) \subset \bigcup_{i=1}^{n} \mathcal{D}_{i}$
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{投影变换与投影矩阵}
+设 $S = S_1 \oplus S_2$, 则 $S$ 中的任意向量 $x$ 都可唯一表示为
+
+$$x = x_1 + x_2, x_1 \in S_1, x_2 \in S_2.$$
+
+我们称 $x_1$ 为 $x$ 沿 $S_2$ 到 $S_1$ 上的投影, 记为 $x|_{S_1}$
+.
+设线性变换$ P : S \to S. $如果对任意 $x \in S$, 都有
+
+$$P x = x|_{S_1}$$,
+
+则称 $P$ 是从 $S$ 沿 $S_2$ 到 $S_1$ 上的 投影变换 (或 投影算子), 对应的变换矩阵
+称为 投影矩阵.
+\end{frame}
+
+\begin{frame}
+\frametitle{投影变换与投影矩阵}
+\begin{lemma}
+	设 $P \in \mathbb{R}^{n×n} $是一个投影矩阵, 则
+	\begin{equation}
+	\mathbb{R}^{n}=\operatorname{Ran}(P) \oplus \operatorname{Ker}(P)
+	\end{equation}
+	反之, 若 $(1.3)$ 成立, 则 $P$ 是沿 $Ker(P)$ 到$ Ran(P)$ 上的投影
+\end{lemma}
+
+投影矩阵由其像空间和零空间唯一确定.
+
+
+\begin{lemma}
+	若 $S_1$ 和 $S_2$ 是 $\mathbb{R}^n$的两个子空间, 且$ \mathbb{R}^n= S_1 ⊕ S_2$, 则存在唯一的
+	投影矩阵 $P$, 使得
+	$$
+	\operatorname{Ran}(P)=\mathcal{S}_{1}, \quad \operatorname{Ker}(P)=\mathcal{S}_{2}
+	$$
+\end{lemma}
+\end{frame}
+
+\begin{frame}
+\frametitle{投影矩阵的判别}
+\begin{theorem}
+	矩阵 $P \in\mathbb{R}^{n \times n}$是投影矩阵的充要条件是 $P^2=P$
+\end{theorem}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{投影算子的矩阵表示}
+设 $S_1$ 和 $S_2$ 是 $\mathbb{R}^n$ 的两个 $m$ 维子空间. 如果$S_{1} \oplus \mathcal{S}_{2}^{\perp}=\mathbb{R}^{n}$ ,则存在唯一的
+投影矩阵 P, 使得
+$$
+\operatorname{Ran}(P)=\mathcal{S}_{1}, \quad \operatorname{Ker}(P)=\mathcal{S}_{2}^{\perp}
+$$
+此时, 我们称 P 是 S1 上与 S2 正交的投影矩阵, 且有
+$$
+P=V\left(W^{\top} V\right)^{-1} W^{\top}
+$$
+其中 $V = [v_1, v_2, . . . , v_m] $和 $W = [w_1, w_2, . . . , w_m]$ 的列向量组分别构成
+$S_1 $和 $S_2$ 的一组基.
+\end{frame}
+
+\begin{frame}
+\frametitle{正交投影}
+设 $S_1$ 是内积空间 $S $的一个子空间, $x \in S$, 则$x$ 可唯一分解成
+$$x = x_1 + x_2, x_1 \in S_1, x_2 \in S^{⊥}_1$$
+,
+其中 $x_1$ 称为 $x$ 在 $S_1$ 上的正交投影.
+
+\qquad$\bullet$若 $P$ 是沿 $S^{⊥}_1 $到 $S_1$ 上的投影变换, 则称 $P$ 为 $S_1$ 上的正交投影变换
+(对应的矩阵为 正交投影矩阵), 记为 $P_{S_1}$
+
+\qquad$\bullet$如果 $P $不是正交投影变换, 则称其为斜投影变换
+
+\begin{theorem}
+	投影矩阵 $P \in\mathbb{R}^{n×n}$是正交投影矩阵的充要条件 $P^{} = P$.
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{正交投影}
+
+\begin{corollary}
+	设 $P$ 是子空间 $S1$ 上的 正交投影变换. 令 $v_1, v_2, . . . , v_m $是$ S_1$ 的
+	一组标准正交基, 则
+	$$
+	P=V V^{\top}
+	$$
+	其中$ V = [v_1, v_2, . . . , v_m].$
+\end{corollary}
+\begin{property}
+	设 P $\in$ $\mathbb{R}^{n×n}$ 是一个正交投影矩阵, 则
+	$$
+	||P||_{2}=1
+	$$
+	且对 $∀ x \in \mathbb{R}^n$, 有
+	$$
+	||x||_{2}^{2}=||P x||_{2}^{2}+||(I-P) x||_{2}^{2}
+	$$
+\end{property}
+\end{frame}
+
+\begin{frame}
+\frametitle{正交投影矩阵的一个重要应用}
+
+\begin{theorem}
+	设 $S_1$ 是 $R_n$ 的一个子空间,$ z \in R_n$ 是一个向量. 则最佳逼近问题
+	$$
+	\min _{x \in \mathcal{S}_{1}}\|x-z\|_{2}
+	$$
+	的唯一解为
+	$$
+	x_{*}=P_{\mathcal{S}_{1}} z
+	$$
+	即 $S_1$ 中距离 $z$ 最近 (2-范数意义下) 的向量是 $z $在 $S
+	_1$ 上的正交投影.
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{正交投影矩阵的一个重要应用}
+
+\begin{corollary}
+	设矩阵 $A \in \mathbb{R}^{n×n}$ 对称正定, 向量 $x∗ \in S_1 ⊆ R_n.$ 则$ x_∗$ 是最佳逼近问题
+	$$
+	\min _{x \in \mathcal{S}_{1}}\|x-z\|_{A}
+	$$
+	的解的充要条件是
+	$$
+	A\left(x_{*}-z\right) \perp \mathcal{S}_{1}
+	$$
+	这里$\|x-z\|_{A} \triangleq\left\|A^{\frac{1}{2}}(x-z)\right\|_{2}$
+\end{corollary}
+\end{frame}
+
+\begin{frame}
+\frametitle{不变子空间}
+
+设 $A \in \mathbb{R}^{n×n}$, $S$ 是 $\mathbb{R}^n$ 的一个子空间, 记
+$$
+A \mathcal{S} \triangleq\{A x : x \in \mathcal{S}\}
+$$
+
+\begin{definition}
+	若$ AS ⊆ S$, 则称 $S$ 为 $A$ 的一个不变子空间.	
+\end{definition}
+
+
+
+\begin{theorem}
+	设 $x_1, x_2, . . . , x_m $是 $A$ 的一组线性无关特征向量, 则
+	$$
+	\operatorname{span}\left\{x_{1}, x_{2}, \ldots, x_{m}\right\}
+	$$
+	是 $A$ 的一个 $m $维不变子空间.
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{不变子空间的一个重要性质}
+\begin{theorem}
+	设 $A \in \mathbb{R}^{n \times n}, X \in \mathbb{R}^{n \times k}$ 且 $rank(X) = k$. 则 $span(X)$ 是 $A$ 的不变子空间的充要条件是存在 $B \in \mathbb{R}^{k \times k}$ 使得
+	$$AX = XB,$$
+	此时, $B$ 的特征值都是 $A$ 的特征值. 
+\end{theorem}
+
+
+
+\begin{corollary}
+	设 $A \in \mathbb{R}^{n \times n}, X \in \mathbb{R}^{n\times k}$ 且 $rank(X) = k$. 若存在一个矩阵$B \in \mathbb{R}^{k\times k}$ 使得 
+	
+	$AX = XB$, 则 $(λ, v)$ 是 $B$ 的一个特征对当且仅当$(\lambda, Xv)$ 是 $A$ 的一个特征对.
+\end{corollary}
+\end{frame}
+
+\section{矩阵标准型}
+\begin{frame}
+\frametitle{矩阵标准型}
+计算矩阵特征值的一个基本思想是通过相似变换, 将其转化成一个形式
+尽可能简单的矩阵, 使得其特征值更易于计算. 其中两个非常有用的特殊
+矩阵是 $Jordan$ 标准型和 $Schur$ 标准型.
+\end{frame}
+
+\begin{frame}
+\frametitle{矩阵标准型}
+\begin{theorem}
+	设 $A \in \mathbb{C}^{n×n}$ 有 $p$ 个不同特征值, 则存在非奇异矩阵$ X \in \mathbb{C}^{n×n}$, 使得
+	$$
+	X^{-1} A X=\left[\begin{array}{cccc}{J_{1}} & {} & {} & {} \\ {} & {J_{2}} & {} \\ {} & {} & {\ddots} & {} \\ {} & {} & {} & {J_{p}}\end{array}\right] \triangleq J
+	$$
+	其中 $J_i$ 的维数等于$ λ_i $的代数重数, 且具有下面的结构
+	
+	\centering {$J_{i}=\left[\begin{array}{ccccc}{J_{i 1}} & {} & {} & {} \\ {} & {J_{i 2}} \\ {} & {} & {\ddots} & {} \\ {} & {} & {} & {J_{i \nu_{i}}}\end{array}\right]$ $J_{i k}=\left[\begin{array}{ccccc}{\lambda_{i}} & {1} & {} & {} \\ {} & {\ddots} & {\ddots} & {} \\ {} & {} & {\lambda_{i}} & {1} \\ {} & {} & {} & {\lambda_{i}}\end{array}\right]$}	
+	
+	这里 $ν_i$ 为 $λ_i$ 的几何重数, $J_{ik}$ 称为 $\blue{Jordan \text{块}}$, 每个 $Jordan$ 块对应一个特征向量	
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{矩阵标准型}
+$\red{\dagger}$ Jordan 标准型在理论研究中非常有用, 但数值计算比较困难, 目前还
+没有找到十分稳定的数值算法.
+
+
+
+\begin{corollary}
+	所有可对角化矩阵组成的集合在所有矩阵组成的集合中是稠密
+	的.
+\end{corollary}
+\end{frame}
+
+\begin{frame}
+\frametitle{Schur 标准型}
+\begin{theorem}
+	设 A $\in$ $\mathbb{C}^{n \times n}$, 则存在一个酉矩阵 $U \in \mathbb{C}^{n \times n}$ 使得	
+	\centering {$U^{*} A U=\left[\begin{array}{cccc}{\lambda_{1}} & {r_{12}} & {\cdots} & {r_{1 n}} \\ {0} & {\lambda_{2}} & {\cdots} & {r_{2 n}} \\ {\vdots} & {} & {\ddots} & {\vdots} \\ {0} & {\cdots} & {0} & {\lambda_{n}}\end{array}\right] \triangleq R$ \text{或} $A=U R U^{*}$}
+	
+	其中 $\lambda_1$, $\lambda_2$, . . . , $\lambda_n$ 是 $A$ 的特征值 (排序任意).
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{Schur 标准型}
+关于 Schur 标准型的几点说明:
+
+$\bullet$Schur 标准型可以说是酉相似变化下的最简形式
+
+$\bullet$U 和 R 不唯一, R 的对角线元素可按任意顺序排列
+
+$\bullet$A 是正规矩阵当且仅当 上述定理中的 R 是对角矩阵;
+
+$\bullet$A 是 Hermite 矩阵当且仅当 上述定理 中的 R 是实对角矩阵.
+\end{frame}
+
+\begin{frame}
+\frametitle{实 Schur 标准型}
+\begin{theorem}
+	设 $A \in \mathbb{R}^{n \times n}$, 则存在正交矩阵 $Q \in \mathbb{R}^{n \times n}$, 使得
+	$$
+	Q^{\top} A Q=T
+	$$
+	其中 $T \in \mathbb{R}^{n \times n}$是 $\blue\text{拟上三角矩阵}$, 即$ T$ 是块上三角的, 且对角块为 $1 × 1$
+	或 $2 \times 2$ 的块矩阵. 若对角块是 $1 \times 1$ 的, 则其就是 $A$ 的一个特征值, 若
+	对角块是 $2 \times 2 $的, 则其特征值是 $A$ 的一对共轭复特征值.
+\end{theorem}
+\end{frame}
+
+\section{几类特殊矩阵}
+\begin{frame}
+\frametitle{对称正定矩阵}
+设 $A \in \mathbb{C}^{n \times n}$.
+
+A 是 半正定 $\Longleftrightarrow$ $\operatorname{Re}\left(x^{*} A x\right) \geq 0, \forall x \in \mathbb{C}^{n}$
+
+A 是 正定 $\Longleftrightarrow$ $\operatorname{Re}\left(x^{*} A x\right)>0, \forall x \in \mathbb{C}^{n}, x \neq 0$
+
+A 是 Hermite 半正定 $\Longleftrightarrow$ A Hermite 且半正定
+
+A 是 Hermite 正定 $\Longleftrightarrow$ A Hermite 且正定
+
+正定和半正定矩阵不要求是对称或 Hermite 的
+\end{frame}
+
+\begin{frame}
+\frametitle{对称正定矩阵}
+\begin{theorem}
+	设 $A \in \mathbb{C}^{n\times n}$. 则 $A$ 正定 (半正定) 的充要条件是矩阵$ H =\frac{1}{2}(A +A∗)$ 正定 (半正定). 
+\end{theorem}
+
+\begin{theorem}
+	设 $A \in \mathbb{R}^{n \times n}$. 则 $A$ 正定 (或半正定) 的充要条件是对任意非零向量 $x \in \mathbb{R}^n$ 有 $x^{\top}Ax > 0 $(或$ x^{\top}Ax \geq 0$). 
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{矩阵平方根}
+\begin{theorem}
+	设 $A \in \mathbb{C}^{n \times n}$ 是 Hermite 半正定, $k $是正整数. 则存在唯一的Hermite 半正定矩阵 $B \in \mathbb{C}^{n \times n}$ 使得
+	$$B^k = A.$$
+	同时, 我们还有下面的性质:
+	
+	(1) $BA = AB$, 且存在一个多项式 $p(t)$ 使得$ B = p(A)$;
+	
+	(2) $rank(B) = rank(A)$, 因此, 若$ A$ 是正定的, 则 $B$ 也正定;
+	
+	(3) 如果 $A$ 是实矩阵的, 则 $B$ 也是实矩阵.
+\end{theorem}
+
+
+特别地, 当 k = 2 时, 称 B 为 A 的平方根, 通常记为 $A^{\frac{1}{2})}$.
+\end{frame}
+
+\begin{frame}
+\frametitle{矩阵平方根}
+Hermite 正定矩阵与内积之间有下面的关系
+
+\begin{theorem}
+	设 $(·, ·)$ 是 $\mathbb{C}^n$上的一个内积, 则存在一个 Hermite 正定矩阵 $A  \mathbb{C}^{n \times n}$使得
+	$$(x, y) = y^{∗}Ax.$$
+	反之, 若 $A \in  \mathbb{C}^{n \times n} $是 Hermite 正定矩阵, 则
+	$$
+	f(x, y) \triangleq y^{*} A x
+	$$
+	是 $\mathbb{C}^n $上的一个内积. 
+\end{theorem}
+
+ 上述性质在实数域中也成立.
+\end{frame}
+
+\begin{frame}
+\frametitle{对角占优矩阵}
+\begin{definition}
+	设$ A \in\mathbb{C}^{n \times n}$, 若
+	$$
+	\left|a_{i i}\right| \geq \sum_{j \neq i}\left|a_{i j}\right|
+	$$
+	对所有 $i = 1, 2, . . . , n $都成立, 且至少有一个不等式严格成立, 则称 A
+	为弱行对角占优. 若对所有 $i = 1, 2, . . . , n$ 不等式都严格成立, 则称 A
+	是严格行对角占优. 通常简称为弱对角占优和严格对角占优.	
+\end{definition}
+
+类似地, 可以定义弱列对角占优 和 严格列对角占优.
+\end{frame}
+
+\begin{frame}
+\frametitle{可约与不可约}
+设$A \in \mathbb{R}^{n \times n}$, 若存在置换矩阵 P, 使得$P A P^{\top}$为块上三角, 即
+$$
+P A P^{\top}=\left[\begin{array}{cc}{A_{11}} & {A_{12}} \\ {0} & {A_{22}}\end{array}\right]
+$$
+其中 $A_{11} \in \mathbb{R}^{k \times k}(1 \leq k<n)$, 则称 A 为可约, 否则不可约.
+
+\begin{theorem}
+	设 $A \in \mathbb{R}^{n \times n}$, 指标集$\mathbb{Z}_{n}=\{1,2, \ldots, \ldots, n\}$. 则 A 可约的充要条
+	件是存在非空指标集 $J \subset \mathbb{Z}_{n}$ 且 $J \neq \mathbb{Z}_{n}$, 使得
+	$$
+	a_{i j}=0, \quad i \in J \text{且} j \in \mathbb{Z}_{n} \backslash J
+	$$
+	这里 $\mathbb{Z}_n \backslash J $表示 J 在$ \mathbb{Z}_n $中的补集.	
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{可约与不可约}
+\begin{theorem}
+	若$A \in \mathbb{C}^{n \times n}$严格对角占优, 则 A 非奇异	
+\end{theorem}
+
+\begin{theorem}
+	若$A \in \mathbb{C}^{n \times n}$不可约对角占优, 则 A 非奇异	
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{其他常见特殊矩阵}
+$\bullet$带状矩阵:
+$a_{i j} \neq 0$ only if $-b_{u} \leq i-j \leq b_{l}$
+, 其中 $b_u$ 和 $b_l$ 为非负整数, 分别称为下
+带宽和上带宽, $b_u + b_l + 1 $称为 A 的带宽
+
+$\bullet$上 Hessenberg 矩阵: $a_{ij} = 0\quad for\quad i - j > 1$,
+$$
+\left[\begin{array}{ccccc}{*} & {*} & {*} & {\dots} & {*} \\ {*} & {*} & {*} & {\dots} & {*} \\ { } & {*} & {*} & {\dots} & {*} \\ { } & { } & {\ddots} & {\ddots} & {\vdots}\\ { } & { } & { } & {*} & {*}\end{array}\right]
+$$
+
+$\bullet$下 Hessenberg 矩阵
+\end{frame}
+
+\begin{frame}
+\frametitle{其他常见特殊矩阵}
+$\bullet$Toeplitz 矩阵
+$$
+T=\left[\begin{array}{cccc}{t_{0}} & {t_{-1}} & {\dots} & {t_{-n+1}} \\ {t_{1}} & {\ddots} & {\ddots} & {\vdots} \\ {\vdots} & {\ddots} & {\ddots} & {t_{-1}} \\ {t_{n-1}} & {\cdots} & {t_{1}} & {t_{0}}\end{array}\right]
+$$
+
+$\bullet$循环矩阵 (circulant):
+$$
+C=\left[\begin{array}{ccccc}{c_{0}} & {c_{n-1}} & {c_{n-2}} & {\cdots} & {c_{1}} \\ {c_{1}} & {c_{0}} & {c_{n-1}} & {\cdots} & {c_{2}} \\ {c_{2}} & {c_{1}} & {c_{0}} & {\cdots} & {c_{3}} \\ {\vdots} & {\vdots} & {\vdots} & {\ddots} & {\vdots} \\ {c_{n-1}} & {c_{n-2}} & {c_{n-3}} & {\cdots} & {c_{0}}\end{array}\right]
+$$
+\end{frame}
+
+\begin{frame}
+\frametitle{其他常见特殊矩阵}
+Hankel 矩阵:
+$$
+H=\left[\begin{array}{ccccc}{h_0} & {h_1} & {\cdots} & {h_{n-2}} & {h_{n-1}} \\ {h_1} & {\ddots} & {\ddots} & {\ddots} & {h_n}\\ {\vdots} & {\ddots} & {\ddots} & {\ddots} & {\vdots}  \\ {h_{n-2}} & {\cdots} & {\cdots} & {\cdots} & {h_{2n-2}} \\ {h_{n-1}} & {h_n} & {\dots} & {h_{2n-2}} & {h_{2n-1}}\end{array}\right]
+$$
+\end{frame}
+
+\section{Kronecker 积}
+\begin{frame}
+\frametitle{Kronecker 积}
+\begin{definition}
+	设$A \in \mathbb{C}^{m \times n}, B \in \mathbb{C}^{p \times q}$, 则 A 与 B 的 Kronecker 积定义为
+	$$
+	A \otimes B=\left[\begin{array}{cccc}{a_{11} B} & {a_{12} B} & {\cdots} & {a_{1 n} B} \\ {a_{21} B} & {a_{22} B} & {\cdots} & {a_{2 n} B} \\ {\vdots} & {\vdots} & {\ddots} & {\vdots} \\ {a_{m 1} B} & {a_{m 2} B} & {\cdots} & {a_{m n} B}\end{array}\right] \in \mathbb{C}^{m p \times n q}
+	$$
+	
+	Kronecker 积也称为直积, 或张量积.
+\end{definition}
+
+
+$\dagger$ 任意两个矩阵都存在 Kronecker 积, 且 $A \oplus B$ 和 $B \oplus A$ 是同阶矩阵,
+但通常 $A \otimes B \neq B \otimes A$
+\end{frame}
+
+\begin{frame}
+\frametitle{基本性质}
+(1) $(αA) \oplus B = A \oplus (αB) = α(A \oplus B), ∀ α \in \mathbb{C}$
+
+(2) $(A \oplus B)^{⊺} = A^{⊺} \oplus B^{⊺}, (A \oplus B)^{∗} = A^{∗} \oplus B^{∗}$
+
+(3) $(A \oplus B) \oplus C = A \oplus (B \oplus C)$
+
+(4) $(A + B) \oplus C = A \oplus C + B \oplus C$
+
+(5) $A \oplus (B + C) = A \oplus B + A \oplus C$
+
+(6)混合积:$ (A \oplus B)(C \oplus D) = (AC) \oplus (BD)$
+
+(7) $(A_1 \oplus A_2 \oplus · · · \oplus A_k)(B_1 \oplus B_2 \oplus · · · \oplus B_k)
+= (A_1B_1) \oplus (A_2B_2) \oplus · · · \oplus (A_kB_k)$
+
+(8) $(A_1 \oplus B_1)(A_2 \oplus B_2)· · ·(A_k \oplus B_k)
+= (A_1A_2 · · · A_k) \oplus (B_1B_2 · · · B_k)$
+
+(9) $rank(A \oplus B) = rank(A)rank(B)$
+\end{frame}
+
+\begin{frame}
+\frametitle{Kronecker 积}
+\begin{theorem}
+	设 $A \in \mathbb{C}^{m \times m}, B \in \mathbb{C}^{n \times n},$ 并设 $(\lambda, x)$ 和 $(\mu, y)$ 分别是$ A $和$ B $的一个特征对, 则 $(\lambda \mu, x \oplus y) $是 $A \oplus B$ 的一个特征对. 由此可知,$ B \oplus A $与$A \oplus B$ 具有相同的特征值.	
+\end{theorem}
+\begin{theorem}
+	设 $A \in \mathbb{C}^{m \times m}$, $B \in \mathbb{C}^{n \times n}$, 则
+	
+	(1) $tr(A \oplus B) = tr(A)tr(B)$ ;
+	
+	(2) $det(A \oplus B) = det(A)^n det(B)^m $;
+	
+	(3) $A \oplus I_n + I_m \oplus B $的特征值为 $\lambda_i + \mu_j$ , 其中 $\lambda_i$ 和 $\mu_j$ 分别为 A 和 B 的特征值;
+	
+	(4) 若 A 和 B 都非奇异, 则 $(A \oplus B)^{-1} = A^{-1} \oplus B^{-1}$;	
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kronecker 积}
+\begin{corollary}
+	设$A=Q_{1} \Lambda_{1} Q_{1}^{-1}, B=Q_{2} \Lambda_{2} Q_{2}^{-1}$,则
+	$$
+	A \otimes B=\left(Q_{1} \otimes Q_{2}\right)\left(\Lambda_{1} \otimes \Lambda_{2}\right)\left(Q_{1} \otimes Q_{2}\right)^{-1}
+	$$	
+\end{corollary}
+
+\begin{theorem}
+	设$A \in \mathbb{C}^{m \times m}, B \in \mathbb{C}^{n \times n}$,则存在 m + n 阶置换矩阵 P 使得
+	
+	$$
+	P^{\top}(A \otimes B) P=B \otimes A
+	$$	
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kronecker 积}
+\begin{theorem}
+	设矩阵 $X = [x_1, x_2, . . . , x_n] \in \mathbb{R}^{
+		m \times n}$, 记 $vec(X)$为 $X$ 按列拉成的
+	mn 维列向量, 即
+	$$
+	\operatorname{vec}(X)=\left[x_{1}^{\top}, x_{2}^{\top}, \ldots, x_{N}^{\top}\right]^{\top}
+	$$
+	则有
+	$$vec(AX) = (I \oplus A)vec(X), vec(XB) = (B^{\top}\oplus I)vec(X),$$
+	以及
+	$$(A \oplus B)vec(X) = vec(BXA^{\top}
+	)$$
+\end{theorem}
+\end{frame}
+\end{document}

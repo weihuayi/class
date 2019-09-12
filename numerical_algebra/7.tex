@@ -1,0 +1,1202 @@
+
+\documentclass[notheorems,serif]{beamer}
+
+%选用主题
+%\usetheme{Rochester}
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}%
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%设置被cover的内容不显示
+%\setbeamercovered{transparent}
+
+\useinnertheme{rounded}
+\usecolortheme{default}
+
+%调用包
+\usepackage[no-math, cm-default]{fontspec}
+\usepackage{xltxtra}
+\usepackage{xunicode}   
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\usepackage{xeCJK}
+\usepackage{multimedia}
+\usepackage{listings}
+\usepackage{subfigure}
+\usepackage{todonotes}
+\presetkeys{todonotes}{inline}{} 
+\usepackage{multicol}
+\usepackage{changes}
+
+
+
+
+%将系统字体名映射为逻辑字体名称，主要是为了维护的方便  
+\newcommand\fnhei{Adobe 黑体 Std}  
+\newcommand\fnsong{Adobe 宋体 Std}  
+\newcommand\fnkai{Adobe 楷体 Std}  
+\newcommand\fnmono{DejaVu Sans Mono}  
+\newcommand\fnroman{Times New Roman}  
+
+\renewcommand{\normalsize}{\wuhao}
+
+%%设置常用中文字号，方便调用  
+\newcommand{\erhao}{\fontsize{22pt}{\baselineskip}\selectfont}  
+\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont}  
+\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}  
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}  
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}  
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}  
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}  
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}  
+\newcommand{\liuhao}{\fontsize{7.5pt}{\baselineskip}\selectfont}  
+
+%\setmainfont{\fnroman}
+\setmainfont{\fnkai}
+\setCJKmainfont[BoldFont=\fnhei]{\fnkai}  
+\setCJKsansfont[BoldFont=\fnhei]{\fnkai}  
+\setCJKmonofont{\fnkai}  
+
+%楷体  
+%\newfontinstance\KAI{\fnkai}  
+%\newcommand{\kai}[1]{{\KAI#1}}  
+%黑体  
+%\newfontinstance\HEI{\fnhei}  
+%\newcommand{\hei}[1]{{\HEI#1}}  
+%英文  
+%\newfontinstance\ENF{\fnroman}  
+%\newcommand{\en}[1]{\,{\ENF#1}\,}
+
+%楷体  
+\newfontfamily\KAI {\fnkai}  
+\newcommand{\kai}[1]{{\KAI#1}}  
+%黑体  
+\newfontfamily\HEI{\fnhei}  
+\newcommand{\hei}[1]{{\HEI#1}}  
+%英文  
+\newfontfamily\ENF{\fnroman}  
+\newcommand{\en}[1]{\,{\ENF#1}\,}
+
+
+%连字符
+\defaultfontfeatures{Mapping=tex-text}
+
+%中文断行
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+
+
+%%%% 定理类环境的定义 %%%%
+\newtheorem{example}{\hei{例子}} 
+\newtheorem{problem}{\hei{问题}}           
+\newtheorem{algorithm}{\hei{算法}}
+\newtheorem{theorem}{\hei{定理}}
+\newtheorem{definition}{\hei{定义}}
+\newtheorem{axiom}{\hei{公理}}
+\newtheorem{property}{\hei{性质}}
+\newtheorem{proposition}{\hei{命题}}
+\newtheorem{lemma}{\hei{引理}}
+\newtheorem{corollary}{\hei{推论}}
+\newtheorem{remark}{\hei{注解}}
+\newtheorem{condition}{\hei{条件}}
+\newtheorem{conclusion}{\hei{结论}}
+\newtheorem{assumption}{\hei{假设}}
+
+%重定义一些环境的名字
+\renewcommand{\proofname}{\hei{证明}}
+\renewcommand\tablename{\hei{表}}
+\input{pptheader.tex}
+\begin{document}
+\title[数值线性代数]{{\small\leftline{数值线性代数———}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~} \\
+矩阵计算
+}
+
+
+
+
+\author[]{~~潘建瑜~~}
+
+\institute[湘潭大学数学系]
+
+\date[\today]
+
+%\pgfdeclareimage[height=1cm]{institution-logo}{figures/xtu.pdf}
+
+%\logo{\pgfuseimage{institution-logo}}
+
+
+\frame[plain]{\titlepage}
+
+
+\AtBeginSection[]{
+
+  \frame<beamer>{ 
+
+    \frametitle{子空间迭代方法}   
+
+    \tableofcontents[currentsection] 
+
+  }
+}
+
+\begin{frame}
+
+
+{\color{blue}\Large 基本思想}
+
+\quad
+
+\normalsize
+在一个{\color{blue}维数较低的子空间}中寻找解析解的一个{\color{blue}最佳近似}.子空间迭代算法的主要过程可以分解为下面三步:
+
+\begin{itemize}
+\item[(1)] 寻找合适的子空间;\\
+	\item[(2)] 在该子空间中求“最佳近似”;\\
+	\item[(3)] 若这个近似解满足精度要求,则停止计算;否则,重新构造一个新的子空间,并返回第(2)步.
+\end{itemize}
+	
+这里主要涉及到的{\color{blue}两个关键问题}是:
+\begin{itemize}
+	\item[(1)] 如果选择和更新子空间；
+	\item[(2)] 如何在给定的子空间中寻找“最佳近似”.
+\end{itemize}
+关于第一个问题,目前较成功的解决方案就是使用{\color{blue}Krylov子空间}.\\
+\end{frame}
+
+\section{Krylov子空间}
+\begin{frame}
+{Krylov子空间}
+设$A \in \mathbb{R}^{n \times n}, r \in \mathbb{R}^{n}$,则由$A$和$r$生成的$m$维{\color{blue}Krylov子空间}定义为
+$$
+\boxed{\mathcal{K}_{m}=\mathcal{K}_{m}(A, r) \triangleq \operatorname{span}\left\{r, A r, A^{2} r, \ldots, A^{m-1} r\right\}, \quad m \leq n}
+$$
+设$\operatorname{dim} \mathcal{K}_{m}=m$,令$v_{1}, v_{2}, \ldots, v_{m}$是$\mathcal{K}_{m}$的一组基,则$\forall x \in \mathcal{K}_{m}$可表示为
+$$x=y_{1} v_{1}+y_{2} v_{2}+\cdots+y_{m} v_{m} \triangleq V_{m} y$$
+{\color{blue}寻找“最佳近似”$x^{(m)}$}转化为
+\begin{itemize}
+	\item[(1)] 寻找一组合适的基$v_{1}, v_{2}, \ldots, v_{m}$;
+	\item[(2)] 求出$x^{(m)}$在这组基下面的表出系数$y^{(m)}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}\Large 基的选取: Arnoldi过程}
+
+\quad
+
+\normalsize
+最简单的基:$\left\{r, A r, A^{2} r, \ldots, A^{m-1} r\right\} \longmapsto$非正交,稳定性得不到保证.\\
+{\color{blue}Arnoldi过程}:将$\left\{r, A r, A^{2} r, \ldots, A^{m-1} r\right\}$单位正交化\\
+\begin{tabular}{l}
+    \hline
+	1:$v_{1}=r /\|r\|_{2}$\\
+	2:for $j=1$ \text { to } $m$ do\\
+	3:\qquad $z=A v_{j}$\\
+	4:\qquad for $i = 1$ to $j$ do \quad{\color{red}\% MGS正交化过程}\\
+	5:\qquad \qquad $h_{i, j}=\left(v_{i}, z\right), \quad z=z-h_{i, j} v_{i}$\\
+	6:\qquad end for\\
+	7:\qquad $h_{j+1, j}=\|z\|_{2}$\quad{\color{red}\% if $h_{j+1, j}=0$break, endif}\\
+	8:$v_{j+1}=z / h_{j+1, j}$\\
+	9:end for\\
+	\hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}\Large Arnoldi过程的矩阵表示}
+
+\quad
+
+\normalsize
+记$V_{m}=\left[v_{1}, v_{2}, \ldots, v_{m}\right]$
+$$
+H_{m+1, m}=\left[\begin{array}{ccccc}{h_{1,1}} & {h_{1,2}} & {h_{1,3}} & {\cdots} & {h_{1, m}} \\
+{h_{2,1}} & {h_{2,2}} & {h_{2,3}} & {\cdots} & {h_{2, m}} \\ 
+{} & {h_{3,2}} & {h_{3,3}} & {\cdots} & {h_{3, m}} \\
+{} & {}&{\ddots} & {\ddots} & {\vdots} \\
+{} & {} &{}& {h_{m, m-1}} & {h_{m, m}} \\
+{} & {} &{}&{}& {h_{m+1, m}}
+\end{array}\right] \in \mathbb{R}^{(m+1) \times m}
+$$
+则由Arnoldi过程可知
+$$
+A v_{j}=h_{1, j} v_{1}+h_{2, j} v_{2}+\cdots+h_{j, j} v_{j}+h_{j+1, j} v_{j+1}
+$$
+所以有
+\begin{align*}
+	A V_{m}=V_{m+1} H_{m+1, m}=V_{m} H_{m}+h_{m+1, m} v_{m+1} e_{m}^{T}
+	\tag{7.1}
+\end{align*}
+\end{frame}
+
+\begin{frame}
+其中$H_{m}=H_{m+1, m}(1 : m, 1 : m), e_{m}=[0, \ldots, 0,1]^{T} \in \mathbb{R}^{m}$.
+由于$V_{m}$是列正交矩阵,上式两边同乘$V_{m}^{T}$可得
+\begin{align*}
+	V_{m}^{T} A V_{m}=H_{m}
+	\tag{7.2}
+\end{align*}
+等式(7.1)和(7.2)是Arnoldi过程的两个重要性质.\\
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}\Large Lanczos过程}
+
+\quad
+
+\normalsize
+若$A$对称,则$H_m$为对称三对角,记为$T_m$,即
+\begin{align*}
+	T_{m}=
+	\left[\begin{array}{cccc}
+		{\alpha_{1}} & {\beta_{1}} & {} & {} \\ 
+		{\beta_{1}} & {\ddots} & {\ddots} & {} \\ 
+		{} & {\ddots} & {\ddots} & {\beta_{m-1}} \\ 
+		{} & {} & {\beta_{m-1}} & {\alpha_{m}}
+	\end{array}\right]
+	\tag{7.3}
+\end{align*}
+Lanczos过程的性质与{\color{blue}三项递推公式}(令$v_{0}=0$和$\beta_{0}=0$)
+\begin{align*}
+	{A V_{m}=V_{m} T_{m}+\beta_{m} v_{m+1} e_{m}^{T}}\tag{7.4}\\ 
+	{V_{m}^{T} A V_{m}=T_{m}}\tag{7.5}
+\end{align*}
+$$
+\beta_{j} v_{j+1}=A v_{j}-\alpha_{j} v_{j}-\beta_{j-1} v_{j-1}, \quad j=1,2, \ldots
+$$
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}Lanczos过程}
+
+\quad
+
+\begin{tabular}{l}
+    \hline
+	1:Set$v_0=0$and$\beta_{0}=0$\\
+	2:$v_{1}=r /\|r\|_{2}$\\
+	3:for $j=1$ \text { to } $m$ do\\
+	4:\qquad $z=A v_{j}$\\
+	5:\qquad $\alpha_{j}=\left(v_{j}, z\right)$\\
+	6:\qquad $z=z-\alpha_{j} v_{j}-\beta_{j-1} v_{j-1}$\\
+	7:\qquad $\beta_{j}=\|z\|_{2}$\\
+	8:\qquad if $\beta_(j)=0$then break ,end if\\
+	9:\qquad $v_{j+1}=z / \beta_j$\\
+	10:end for\\
+	\hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}\Large Krylov子空间算法的一般过程}
+
+\quad
+
+\normalsize
+\begin{itemize}
+\item[(1)] 令$m=1$;
+	\item[(2)] 定义Krylov子空间$\mathcal{K}_{m}\left(A, r_{0}\right)$;
+	\item[(3)] 找出{\color{blue}仿射空间$x^{(0)}+\mathcal{K}_{m}$}中的“最佳近似”解;
+	\item[(4)] 如果这个近似解满足精度要求,则迭代结束;\\
+	否则令$m \leftarrow m+1$,返回第(2)步.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}Krylov子空间迭代算法基本框架}
+\begin{tabular}{l}
+    \hline
+	1:选取初始向量$x^{(0)}$\\
+	2:计算$r_{0}=b-A x^{(0)}, v_{1}=r_{0} /\left\|r_{0}\right\|_{2}$\\
+	3:寻找“最佳近似”解:$x^{(1)} \in x^{(0)}+\mathcal{K}_{1}=x^{(0)}+\operatorname{span}\left\{v_{1}\right\}$\\
+	4:if $x^{(1)}$满足精度要求then\\
+	5:\qquad 终止迭代\\
+	6:end if\\
+	7:for $m= 2$to $n$ do\\
+	8:\qquad 调用Arnoldi或Lanczos过程计算向量$v_m$\\
+	9:\qquad 寻找“最佳近似”解:$x^{(m)} \in x^{(0)}+\mathcal{K}_{m}=x^{(0)}+\operatorname{span}\left\{v_{1}, \ldots, v_{m}\right\}$\\
+	10:\qquad if $x^{(m)}$ 满足精度要求then\\
+	11:\qquad \qquad 终止迭代\\
+	12:\qquad end if\\
+	13:end for\\
+	\hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}\Large 如何计算$x^{(0)}+\mathcal{K}_{m}$中的“最佳近似”$x^{(m)}$}
+
+\quad
+
+\normalsize
+首先,我们必须给出“最佳”的定义,不同的定义会导致不同的算法.最直接的方式:$\left\|x^{(m)}-x_{*}\right\|_{2}$达到最小.但由于$x_{*}$不知道,因此不实用.
+
+{\color{blue}什么是“最佳”}
+
+\begin{itemize}
+\item[(1)] $\left\|r_{m}\right\|_{2}=\left\|b-A x^{(m)}\right\|_{2}$达到最小$A$对称$\to$ {\color{blue}MINRES},$A$非对称$\to${\color{blue}GMRES}
+	\item[(2)] $A$对称正定,极小化$\left\|x_{*}-x^{(m)}\right\|_{A} \rightarrow \mathrm{CG}$(共轭梯度法)
+\end{itemize}
+本讲主要介绍{\color{blue}GMRES}算法和{\color{blue}CG}算法.\\
+\end{frame}
+
+
+\section{GMRES算法}
+\begin{frame}
+{GMRES算法}
+GMRES算法是目前求解非对称线性方程组的最常用算法之一.“最佳近似”解的判别方法为{\color{blue}使得$\left\|r_{m}\right\|_{2}=\left\|b-A x^{(m)}\right\|_{2}$最小}\\
+对任意向量$x \in x^{(0)}+\mathcal{K}_{m}$,可设$x=x^{(0)}+V_{m} y$,其中$y \in \mathbb{R}^{m}$.于是
+$$
+r=b-A x=r_{0}-A V_{m} y=V_{m+1}\left(\beta e_{1}-H_{m+1, m} y\right)
+$$
+这里$\beta=\left\|r_{0}\right\|_{2}$.由于$V_{m+1}$列正交,所以
+$$
+\|r\|_{2}=\left\|V_{m+1}\left(\beta e_{1}-H_{m+1, m} y\right)\right\|_{2}=\left\|\beta e_{1}-H_{m+1, m} y\right\|_{2}
+$$
+于是最优性条件就转化为
+\begin{align*}
+	y^{(m)}=\arg \min _{y \in \mathbb{R}^{m}}\left\|\beta e_{1}-H_{m+1, m} y\right\|_{2}\tag{7.6}
+\end{align*}
+用基于Givens变换的QR分解来求解即可.\\
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}\Large GMRES算法的基本框架}
+
+\quad
+
+\normalsize
+\begin{tabular}{l}
+	\hline
+	{\color{blue}算法2.1}GMRES迭代算法基本框架\\
+	\hline
+	1:选取初值$x^{(0)}$,停机标准$\varepsilon>0$,以及最大迭代步数IterMax\\
+	2:$r_{0}=b-A x^{(0)}, \beta=\left\|r_{0}\right\|_{2}$\\
+	3:$v_{1}=r_{0} / \beta$\\
+	4:for$j= 1$to IterMax do
+	5:\qquad $w=A v_{j}$ \\
+	6:\qquad $\text { for } i=1 \text { to } j \mathrm{do}$ \qquad{\color{red}\% Arnoldi过程}\\ 
+	7:\qquad \qquad $h_{i, j}=\left(v_{i}, w\right)$\\ 
+	8:\qquad \qquad $w=w-h_{i, j} v_{i}$\\ 
+	9:\qquad $\text { end for }$\\ 
+	10:\qquad $h_{j+1, j}=\|w\|_{2}$\\ 
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\begin{tabular}{l}
+\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad .\\
+	11:\qquad $\text { if } h_{j+1, j}=0 \text { then }$\\ 
+	12:\qquad \qquad $m=j, \text { break }$\\
+	13:\qquad $\text { end if }$\\ 
+	14:\qquad $v_{j+1}=w / h_{j+1, j}$\\ 
+	15:\qquad $5\text { relres }=\left\|r_{j}\right\|_{2} / \beta$\\ 
+	16:\qquad $\text { if relres }<\varepsilon \text { then }$\\ 
+	17:\qquad \qquad $\quad m=j, \text { break }$\\ 
+	18:\qquad $\text { end if }$\\ 
+	19:$\text { end for }$\\
+	20:解最小二乘问题(7.6),得到$y$\\
+	21:$x^{(m)}=x^{(0)}+V_{m} y^{(m)}$\\
+	\hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}\Large 实施细节}
+
+\quad
+
+\normalsize
+需要解决下面两个问题:
+
+\begin{itemize}
+	\item[(1)] 如何计算残量$r_{m} \triangleq b-A x^{(m)}$的范数？
+	\item[(2)] 如何求解最小二乘问题(7.6)?
+\end{itemize}
+{\color{blue}这两个问题可以同时处理.}\\
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}\Large 最小二乘问题的求解}
+
+\quad
+
+\normalsize
+设$H_{m+1, m}$的$QR$分解为
+$$
+H_{m+1, m}=Q_{m+1}^{T} R_{m+1, m}
+$$
+其中$Q_{m+1}$是正交矩阵,$R_{m+1, m} \in \mathbb{R}^{(m+1)} \times m$是上三角矩阵.则
+$$
+\left\|\beta e_{1}-H_{m+1, m} y\right\|_{2}=\left\|\beta Q_{m+1} e_{1}-R_{m+1, m} y\right\|_{2}=\left\|\beta q_{1}-\left[\begin{array}{c}{R_{m}} \\ {0}\end{array}\right] y\right\|_{2}
+$$
+其中$R_{m} \in \mathbb{R}^{m \times m}$非奇异(假定$H_{m+1, m}$不可约).所以
+$$
+\begin{array}{l}{y^{(m)}=\beta R_{m}^{-1} q_{1}(1 : m)} \\ {\left\|r_{m}\right\|_{2}=\left\|b-A x^{(m)}\right\|_{2}=\left\|\beta e_{1}-H_{m+1, m} y^{(m)}\right\|_{2}=\beta \cdot\left|q_{1}(m+1)\right|}\end{array}
+$$
+其中$q_{1}(m+1)$表示$q_1$的第$m+ 1$个分量
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}\Large $H_{m+1, m}$的QR分解的递推计算方法}
+
+\quad
+
+\normalsize
+由于$H_{m+1, m}$是上Hessenberg矩阵,因此我们采用Givens变换.\\
+\begin{itemize}
+\item[(1)] 当$m=1$时$H_{21}=\left[\begin{array}{l}{h_{11}} \\ {h_{21}}\end{array}\right]$,构造Givens变换$G_1$使得$\overline{G}_{1} H_{21}=\left[\begin{array}{l}{*} \\ {0}\end{array}\right]=R_{21}$,即$H_{21}=G_{1}^{T} R_{21}$
+	\item[(2)] 假定存在$G_{1}, G_{2}, \ldots, G_{m-1}$使得
+	$$
+	\left(G_{m-1} \cdots G_{2} G_{1}\right) H_{m, m-1}=R_{m, m-1}
+	$$
+	即
+	$$
+	H_{m, m-1}=\left(G_{m-1} \cdots G_{2} G_{1}\right)^{T} R_{m, m-1} \triangleq Q_{m}^{T} R_{m, m-1}
+	$$
+\end{itemize}
+\end{frame}
+	
+\begin{frame}
+为了书写方便,这里假定Gi的维数自动扩张,以满足矩阵乘积的需要.
+\begin{itemize}
+	\item[(3)] 考虑$H_{m+1, m}$的$QR$分解.易知\\
+	$
+	H_{m+1, m}=\left[\begin{array}{cc}{H_{m, m-1}} & {h_{m}} \\ {0} & {h_{m+1, m}}\end{array}\right]
+	$其中$h_{m}=\left[h_{1 m}, h_{2 m}, \ldots, h_{m m}\right]^{T}$\\
+	所以有
+	$$
+	\left[\begin{array}{cc}{Q_{m}} & {0} \\ {0} & {1}\end{array}\right] H_{m+1, m}=\left[\begin{array}{cc}{R_{m, m-1}} & {Q_{m} h_{m}} \\ {0} & {h_{m+1, m}}\end{array}\right]=\left[\begin{array}{cc}{R_{m-1}} & {\tilde{h}_{m-1}} \\ {0} & {\hat{h}_{m m}} \\ {0} & {h_{m+1, m}}\end{array}\right]
+	$$
+	其中$\tilde{h}_{m-1}$是$Q_{m} h_{m}$的前$m$个元素组成的向量,$\hat{h}_{m m}$是$Q_{m} h_{m}$的最后一个元素.\\
+\end{itemize}
+\end{frame}
+\begin{itemize}
+	\item[]构造Givens变换$G_{m}$:	
+	$$
+	G_{m}=\left[\begin{array}{ccc}{I_{m-1}} & {0} & {0} \\ {0} & {c_{m}} & {s_{m}} \\ {0} & {-s_{m} c_{m}}\end{array}\right] \in \mathbb{R}^{(m+1) \times(m+1)}
+	$$
+	其中$c_{m}=\frac{\hat{h}_{m, m}}{\tilde{h}_{m, m}}, s_{m}=\frac{h_{m+1, m}}{\tilde{h}_{m, m}}, \tilde{h}_{m, m}=\sqrt{\hat{h}_{m, m}^{2}+h_{m+1, m}^{2}}$令
+	$$
+	Q_{m+1}=G_{m}\left[\begin{array}{cc}{Q_{m}} & {0} \\ {0} & {1}\end{array}\right]
+	$$
+	则
+	$$
+	Q_{m+1} H_{m+1, m}=G_{m}\left[\begin{array}{cc}{R_{m-1}} & {\tilde{h}_{m-1}} \\ {0} & {\hat{h}_{j, j}} \\ {0} & {h_{m+1, m}}\end{array}\right]=\left[\begin{array}{cc}{R_{m-1}} & {\tilde{h}_{m-1}} \\ {0} & {\tilde{h}_{j, j}} \\ {0} & {0}\end{array}\right] \triangleq R_{m+1, m}
+	$$
+	所以可得$H_{m+1, m}$的$QR$分解$H_{m+1, m}=Q_{m+1}^{T} R_{m+1, m}$.
+\end{itemize}
+
+\begin{frame}
+由$H_{m, m-1}$的$QR$分解到$H_{m+1, m}$的$QR$分解，我们需要
+\begin{itemize}
+	\item[(1)] 计算$Q_{m} h_{m}$,即将之前的$m-1$个Givens变换作用到$H_{m+1, m}$的最后一列的前$m$个元素上,所以我们需要保留所有的Givens变换;
+	\item[(2)] 残量计算:$\left\|r_{m}\right\|_{2}=\left|\beta q_{1}(m+1)\right|=\left|\beta Q_{m+1}(m+1,1)\right|$,即
+	$$
+	G_{m} G_{m-1} \cdots G_{2} G_{1}\left(\beta e_{1}\right)
+	$$
+	的最后一个分量的绝对值.由于在计算$r_{m-1}$时就已经计算出$G_{m-1} \cdots G_{2} G_{1}\left(\beta e_{1}\right)$因此这里只需做一次Givens变换即可;
+	\item[(3)] $y^{(m)}$的计算:当相对残量满足精度要求时,需要计算$y^{(m)}=$ $R_{m}^{-1} q_{1}(1 : m)$而$q_{1}$即为$G_{m} G_{m-1} \cdots G_{2} G_{1}\left(\beta e_{1}\right)$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}\Large 实用GMRES算法}
+
+\quad
+
+\normalsize
+\begin{tabular}{l}
+	\hline
+	{\color{blue}算法2.2}实用GMRES算法\\
+	\hline
+	1:给定初值$x^{(0)}$,停机标准$\varepsilon>0$,最大迭代步数IterMax\\
+	2:$r_{0}=b-A x^{(0)}, \beta=\left\|r_{0}\right\|_{2}$\\
+	3：if $\beta< \epsilon$ then\\
+	4:\qquad 停止计算，输出近似解$x^{(0)}$\\
+	5:end if\\
+	6:$v_{1}=r_{0} / \beta$\\
+	7:$\xi=\beta e_{1}$ \qquad{\color{red}记录$q_1$}\\
+	8:for$j= 1$to IterMax do
+	9:\qquad $w=A v_{j}$ \\
+	10:\qquad $\text { for } i=1 \text { to } j \mathrm{do}$ \qquad{\color{red}\% Arnoldi过程}\\ 
+	11:\qquad \qquad $h_{i, j}=\left(v_{i}, w\right)$\\ 
+	12:\qquad \qquad $w=w-h_{i, j} v_{i}$\\ 
+	13:\qquad $\text { end for }$\\ 
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\begin{tabular}{l}
+    14:\qquad $h_{j+1, j}=\|w\|_{2}$\\ 
+	15:\qquad $\text { if } h_{j+1, j}=0 \text { then }$\qquad {\color{red}\% 迭代中断}\\ 
+	16:\qquad \qquad $m=j, \text { break }$\\
+	17:\qquad $\text { end if }$\\ 
+	18:\qquad $v_{j+1}=w / h_{j+1, j}$\\ 
+	19:\qquad for$i= 1$to$j-1$do\qquad {\color{red}\% 计算$G_{j-1} \cdots G_{2} G_{1} H_{\jmath+1, j}(1 : j, j)$}\\
+	20:\qquad$\left[\begin{array}{c}{h_{i j}} \\ {h_{i+1, j}}\end{array}\right]=\left[\begin{array}{cc}{c_{i}} & {s_{i}} \\ {-s_{i}} & {c_{i}}\end{array}\right]\left[\begin{array}{c}{h_{i j}} \\ {h_{i+1, j}}\end{array}\right]$\\
+	21:\qquad end for
+	22:\qquad if$\left|h_{j j}\right|>\left|h_{j+1, j}\right|$then\qquad {\color{red}\% 构造Givens变换$G_j$}\\
+	23:\qquad \qquad $\tau=h_{j+1, j} / h_{j j}, c_{j}=1 / \sqrt{1+\tau^{2}}, s_{j}=c_{j} \tau$\\
+	24:\qquad else\\
+	25:\qquad \qquad $\tau=h_{j j} / h_{j+1, j}, s_{j}=1 / \sqrt{1+\tau^{2}}, c_{j}=s_{j} \tau$\\
+	26:\qquad end if\\
+	27:\qquad $h_{j j}=c_{j} h_{j j}+s_{j} h_{j+1, j}$\qquad {\color{red}\% 计算$G_{j} H_{j+1, j}(1 : j, j)$}\\
+	28:\qquad $h_{j+1, j}=0$
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\begin{tabular}{l}	
+	29:\qquad $\left[\begin{array}{c}{\xi_{j}} \\ {\xi_{j+1}}\end{array}\right]=\left[\begin{array}{cc}{c_{j}} & {s_{j}} \\ {-s_{j}} & {c_{j}}\end{array}\right]\left[\begin{array}{l}{\xi_{j}} \\ {0}\end{array}\right]$\qquad {\color{red}\% 计算$G_{j}\left(\beta G_{j-1} \cdots G_{2} G_{1} e_{1}\right)$}\\
+	30:\qquad relres $=\left|\xi_{j+1}\right| / \beta$\qquad {\color{red}\% 相对残量}\\
+	31: \qquad if $relres<\epsilon$ then\\
+	32:\qquad \qquad $m=j,$ break\\
+	33:\qquad end if\\
+	34:end for\\
+	35:$m=j$\\
+	36:$y^{(m)}=H(1 : m, 1 : m) \backslash \xi(1 : m)$\qquad {\color{red}\%最小二乘问题，回代求解}\\
+	37:$x^{(m)}=x^{(0)}+V_{m} y^{(m)}$\\
+	38:if $relres<\epsilon$ then\\
+	39:\qquad 输出近似解$x$及相关信息\\
+	40:else \\
+	41:\qquad 输出算法失败信息\\
+	42：end if\\
+	\hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}\Large GMRES算法的中断}
+
+\quad
+
+\normalsize
+在上面的GMRES算法中,当执行到某一步时有$h_{j+1, j}=0$,则算法会中断(breakdown).如果出现这种中断,则我们就可以找到精确解\\
+\begin{theorem}
+设$A \in \mathbb{R}^{n \times n}$非奇异且$r_{0} \neq 0$.若$h_{i+1, i} \neq 0, i=1,2, \ldots, k-1$则$h_{k+1, k}=0$当且仅当$x^{(k)}$是方程组的精确解. (不考虑舍入误差)
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}\Large 带重启的GMRES算法}
+
+\quad
+
+\normalsize
+由于随着迭代步数的增加, GMRES算法的每一步所需的运算量和存储量都会越来越大.因此当迭代步数很大时, GMRES算法就不太实用.
+{\color{blue}重启技术}
+事先设定一个重启迭代步数$k$,如果GMRES达到这个迭代步数时仍不收敛,则计算出$x^{(0)}+\mathcal{K}_{k}$中的最佳近似解$x^{(k)}$,然后令$x^{(0)}=x^{(k)}$,重新开始新的GMRES迭代.\\
+\end{frame}
+
+\begin{frame}
+\begin{tabular}{l}
+	\hline
+	{\color{blue}算法2.3}带重启的GMRES算法\\
+	\hline
+	1:设定重启步数$k(\ll n )$\\
+	2:给定初值$x^{(0)}$,停机标准$\varepsilon>0$,最大迭代步数IterMax\\
+	3:$r_{0}=b-A x^{(0)}, \beta=\left\|r_{0}\right\|_{2}$\\
+	4:if $\beta<\varepsilon$ then\\
+	5:\qquad 停止计算,输出近似解$x=x^{(0)}$\\
+	6:end if\\
+	7:for $iter=1$ to $ceil(IterMax/k)$ do\\
+	8:\qquad $v_{1}=r_{0} / \beta$\\
+	9:\qquad $\xi=\beta e_{1}$\\
+	10:\qquad for $j= 1$ to $k$ do\\
+	11:\qquad \qquad 调用GMRES循环\\
+	12:\qquad end for \\
+	13:\qquad $m=j$\\
+	14:\qquad $y^{(m)}=H(1 : m, 1 : m) \backslash \xi(1 : m)$\\
+\end{tabular}
+\end{frame}
+	
+\begin{frame}
+\begin{tabular}{l}
+	15:\qquad $x^{(m)}=x^{(0)}+V_{m} y^{(m)}$\\
+	16:\qquad if $relres<\varepsilon$ then \qquad {\color{red}\%收敛。退出循环}\\
+	17:\qquad \qquad break
+	18:\qquad end if
+	19:\qquad $x^{(0)}=x^{(m)}${\color{red}\%重启GMRES}\\
+	20:\qquad $r_{0}=b-A x^{(0)}, \beta=\left\|r_{0}\right\|_{2}$\\
+	21:end for \\
+	22:if $relres<\varepsilon$ then\\
+	23:\qquad 输出近似解$x^{(m)}$及相关信息\\
+	24:else\\
+	25:\qquad 输出算法失败信息\\
+	26:end if\\
+	\hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}\Large 带重启的GMRES算法需要注意的问题}
+
+\quad
+
+\normalsize
+\begin{itemize}
+	\item[(1)] 如何选取合适的重启步数k?\\
+	{\color{blue}一般只能依靠经验来选取,如$k= 20,50$}.
+	\item[(2)] 不带重启的GMRES算法能保证算法的收敛性,但带重启的GM-RES算法却无法保证,有时可能出现停滞现象(stagnation).
+\end{itemize}
+\end{frame}
+
+\section{共轭梯度法(CG)}
+\begin{frame}
+
+
+{\color{blue}“最佳近似”:$\left\|x_{*}-x^{(m)}\right\|_{A}$最小}
+
+首先给出“最佳近似”解$x^{(m)}$的一个性质.
+{\color{blue}定理}
+设$A$对称正定,则
+\begin{align*}
+	x^{(m)}=\arg \min _{x \in x^{(0)}+\mathcal{K}_{m}}\left\|x-x_{*}\right\|_{A}\tag{7.7}
+\end{align*}
+当且仅当
+\begin{align*}
+	x^{(m)} \in x^{(0)}+\mathcal{K}_{m} \quad \mathbb{H} \quad b-A x^{(m)} \perp \mathcal{K}_{m}
+	\tag{7.8}
+\end{align*}
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}\Large Lanczos过程}
+
+\quad
+
+\normalsize
+Lanczos过程的{\color{blue}三项递推公式}:
+$$
+\begin{array}{l}{A V_{m}=V_{m+1} T_{m+1, m}=V_{m} T_{m}+\beta_{m} v_{m+1} e_{m}^{T}} \\ {V_{m}^{T} A V_{m}=T_{m}}\end{array}
+$$
+其中$T_{m}=\operatorname{tridiag}\left(\beta_{i}, \alpha_{i+1}, \beta_{i+1}\right)$\\
+由前面的结论可知,此时我们需要在$x^{(0)}+\mathcal{K}_{m}$寻找最优解$x^{(m)}$,满足
+\begin{align*}
+	b-A x^{(m)} \perp \mathcal{K}_{m}
+	\tag{7.9}
+\end{align*}
+下面就根据这个性质推导CG算法的迭代公式.
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}\Large CG算法的推导}
+
+\quad
+
+\normalsize
+首先,设$x^{(m)}=x^{(0)}+V_{m} z^{(m)}$,其中$z^{(m)} \in \mathbb{R}^{m}$.由(7.9)可知
+$$
+0=V_{m}^{T}\left(b-A x^{(m)}\right)=V_{m}^{T}\left(r_{0}-A V_{m} z^{(m)}\right)=\beta e_{1}-T_{m} z^{(m)}
+$$
+因此,
+$$
+z^{(m)}=T_{m}^{-1}\left(\beta e_{1}\right)
+$$
+设$T_{m}$的$\mathrm{LDL}^{T}$分解为$T_{m}=L_{m} D_{m} L_{m}^{T}$.于是
+$$
+x^{(m)}=x^{(0)}+V_{m} z^{(m)}=x^{(0)}+V_{m} T_{m}^{-1}\left(\beta e_{1}\right)=x^{(0)}+\left(V_{m} L_{m}^{-T}\right)\left(\beta D_{m}^{-1} L_{m}^{-1} e_{1}\right)
+$$
+如果$x^{(m)}$满足精度要求,则计算结束.否则我们需要计算
+$$
+x^{(m+1)}=x^{(0)}+V_{m+1} T_{m+1}^{-1}\left(\beta e_{1}\right)=x^{(0)}+\left(V_{m+1} L_{m+1}^{-T}\right)\left(\beta D_{m+1}^{-1} L_{m+1}^{-1} e_{1}\right)
+$$
+这里$T_{m+1}=L_{m+1} D_{m+1} L_{m+1}^{T}$\\
+\end{frame}
+
+\begin{frame}
+记
+$$
+\begin{array}{l}{\tilde{P}_{m} \triangleq V_{m} L_{m}^{-T}=\left[\tilde{p}_{1}, \tilde{p}_{2}, \ldots, \tilde{p}_{m}\right] \in \mathbb{R}^{n \times m}} \\ 
+{y_{m} \triangleq \beta D_{m}^{-1} L_{m}^{-1} e_{1}=\left[\eta_{1}, \ldots, \eta_{m}\right]^{T} \in \mathbb{R}^{m}}\end{array}
+$$
+{\color{blue}$\tilde{P}_{m}$和$y_{m}$的递推关系式}(由$T_{m+1}$的$\mathrm{LDL}^{\mathrm{T}}$分解可得)
+$$
+\begin{array}{l}{\tilde{P}_{m+1} \triangleq V_{m+1} L_{m+1}^{-T}=\left[\tilde{P}_{m}, \tilde{p}_{m+1}\right]} \\ {y_{m+1} \triangleq \beta D_{m+1}^{-1} L_{m+1}^{-1} e_{1}=\left[y_{m}^{T}, \eta_{m+1}\right]^{T}, \quad m=1,2, \ldots}\end{array}
+$$
+{\color{blue}$\tilde{P}_{m+1}$的递推关系式}
+$$
+\tilde{p}_{m+1}=-l_{m} \tilde{p}_{m}+v_{m+1}
+$$
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}$x^{m+1}$的递推关系式}
+$$
+x^{(m+1)}=\tilde{P}_{m+1} y_{m+1}=\left[\tilde{P}_{m}, \tilde{p}_{m+1}\right]\left[\begin{array}{c}{y_{m}} \\ {\eta_{m+1}}\end{array}\right]=x^{(m)}+\eta_{m+1} \tilde{p}_{m+1}
+$$
+{\color{blue}$r_{m+1}$的递推关系式(收敛性判断)}
+$$
+r_{m+1}=b-A x^{(m+1)}=b-A\left(x^{(m)}+\eta_{m+1} \tilde{p}_{m+1}\right)=r_{m}-\eta_{m+1} A \tilde{p}_{m+1}
+$$
+另一方面,我们有
+$$
+r_{m}=b-A x^{(m)}=r_{0}-A V_{m} z^{(m)}=-\beta_{m}\left(e_{m}^{T} z^{(m)}\right) v_{m+1}
+$$
+即$r_m$与$v_m+1$平行.记{\color{blue}$r_{m}=T_{m} v_{m+1}$},其中
+$$
+\tau_{0}=\beta=\left\|r_{0}\right\|_{2}, \quad \tau_{m}=-\beta_{m}\left(e_{m}^{T} z^{(m)}\right), \quad m=1,2, \ldots
+$$
+\end{frame}
+
+\begin{frame}
+{\color{blue}$p^{m+1}$的递推关系式}(定义$p_{m}=\tau_{m-1} \tilde{p}_{m}$)
+\begin{align*}
+	p_{m+1}=\tau_{m} \tilde{p}_{m+1}=\tau_{m}\left(v_{m+1}-l_{m} \tilde{p}_{m}\right)=r_{m}+\mu_{m} p_{m}
+	\tag{7.10}
+\end{align*}
+其中$\mu_{m}=-l_{m} \tau_{m} / \tau_{m-1}, m=1,2, \ldots$
+{\color{blue}$x^{(m+1)}$和$r_{m+1}$的新递推关系式}
+\begin{align*}
+	x^{(m+1)}=x^{(m)}+\eta_{m+1} \tilde{p}_{m+1}=x^{(m)}+\xi_{m+1} p_{m+1}\tag{7.11}\\
+	r_{m+1}=r_{m}-\eta_{m+1} A \tilde{p}_{m+1}=r_{m}-\xi_{m+1} A p_{m+1}
+	\tag{7.12}
+\end{align*}
+其中$\xi_{m+1}=\eta_{m+1} / \tau_{m}, m=1,2, \ldots$
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}系数$\xi m+1$和$\mu_{m}$的计算方法}
+\begin{lemma}
+下面的结论成立:
+\begin{itemize}
+	\item[(1)] $r_{1}, r_{2}, \ldots, r_{m}$相互正交;
+	\item[(2)] $p_{1}, p_{2}, \dots, p_{m}$相互$A-$共轭($A-$正交),即当$i \neq j$时有$p_{i}^{T} A p_{j}=0$.
+\end{itemize}
+\end{lemma}
+在等式(7.10)两边同时左乘$p_{m+1}^{T} A$可得
+$$
+p_{m+1}^{T} A p_{m+1}=p_{m+1}^{T} A r_{m}+\mu_{m} p_{m+1}^{T} A p_{m}=r_{m}^{T} A p_{m+1}
+$$
+再用$r_{m}^{T}$左乘方程(7.12)可得
+$$
+0=r_{m}^{T} r_{m+1}=r_{m}^{T} r_{m}-\xi_{m+1} r_{m}^{T} A p_{m+1}
+$$
+\end{frame}
+
+\begin{frame}
+于是
+\begin{align*}
+	\xi_{m+1}=\frac{r_{m}^{T} r_{m}}{r_{m}^{T} A p_{m+1}}=\frac{r_{m}^{T} r_{m}}{p_{m+1}^{T} A p_{m+1}}
+	\tag{7.13}
+\end{align*}
+等式(7.10)两边同时左乘$p_{m}^{T} A$可得
+$$
+0=p_{m}^{T} A p_{m+1}=p_{m}^{T} A r_{m}+\mu_{m} p_{m}^{T} A p_{m} \Longrightarrow \mu_{m}=-\frac{r_{m}^{T} A p_{m}}{p_{m}^{T} A p_{m}}
+$$
+为了进一步减少运算量,将上式简化.用$r_{m+1}^{T}$左乘方程(7.12)可得
+$$
+r_{m+1}^{T} r_{m+1}=r_{m+1}^{T} r_{m}-\xi_{m+1} r_{m+1}^{T} A p_{m+1}=-\xi_{m+1} r_{m+1}^{T} A p_{m+1}
+$$
+于是
+$$
+\xi_{m+1}=-\frac{r_{m+1}^{T} r_{m+1}}{r_{m+1}^{T} A p_{m+1}} \Longrightarrow \xi_{m}=-\frac{r_{m}^{T} r_{m}}{r_{m}^{T} A p_{m}}
+$$
+\end{frame}
+
+\begin{frame}
+即$r_{m}^{T} A p_{m}=-r_{m}^{T} r_{m} / \xi_{m}$于是
+\begin{align*}
+	\mu_{m}=-\frac{r_{m}^{T} A p_{m}}{p_{m}^{T} A p_{m}}=\frac{r_{m}^{T} r_{m}}{p_{m}^{T} A p_{m}} \cdot \frac{1}{\xi_{m}}=\frac{r_{m}^{T} r_{m}}{r_{m-1}^{T} r_{m-1}}
+	\tag{7.14}
+\end{align*}
+注意,以上递推公式是从$m=1$开始的.因此$m=0$时需要另外推导.首先,由$\tilde{p}_{1}$的定义可知
+$$
+\tilde{p}_{1}=\tilde{P}_{1}=V_{1} L_{1}^{-T}=v_{1} \Longrightarrow \quad \quad p_{1}=\tau_{0} \tilde{p}_{1}=\beta v_{1}=r_{0}
+$$
+其次,由Lanczos过程可知$T_{1}=\alpha_{1}=v_{1}^{T} A v_{1}$.注意到$\beta=r_{0}^{T} r_{0}$,于是
+$$
+x^{(1)}=x^{(0)}+V_{1} T_{1}^{-1}\left(\beta e_{1}\right)=x^{(0)}+\frac{\beta}{v_{1}^{T} A v_{1}} v_{1}=x^{(0)}+\frac{r_{0}^{T} r_{0}}{p_{1}^{T} A p_{1}} p_{1}
+$$
+\end{frame}
+
+\begin{frame}
+令$\xi_{1}=\frac{r_{0}^{T} r_{0}}{p_{1}^{T} A p_{1}}$(注:之前的$\xi m+1$计算公式(7.13)只对$m \geq 1$有定义),则当$m=0$时关于$x^{(m+1)}$的递推公式仍然成立.\\
+最后考虑残量.易知
+$$
+r_{1}=b-A x^{(1)}=b-A x^{(0)}-\frac{r_{0}^{T} r_{0}}{p_{1}^{T} A p_{1}} A p_{1}=r_{0}-\xi_{1} A p_{1}
+$$
+即当$m=0$时关于$r_{m+1}$的递推公式也成立.
+\end{frame}
+
+
+\begin{frame}
+
+
+{\color{blue}\Large 共轭梯度法}
+
+\quad
+
+\normalsize
+\begin{tabular}{l}
+	\hline
+	{\color{blue}算法3.1 共轭梯度法}\\
+	\hline
+	1:给定初值$x^{(0)}$,停机标准$\varepsilon>0$,最大迭代步数IterMax\\
+	2:$r_{0}=b-A x^{(0)},$\\
+	3:$\beta=\left\|r_{0}\right\|_{2}$\\
+	4：if $\beta< \epsilon$ then\\
+	5:\qquad 停止计算，输出近似解$x^{(0)}$\\
+	6:end if\\
+	7:for $m=1$ to $IterMax$ do\\
+	8:\qquad $\rho=r_{m-1}^{T} r_{m-1}$\\
+	9:\qquad if $m>1$ then\\
+	10:\qquad \qquad $\mu_{m-1}=\rho / \rho_{0}$\\
+	11:\qquad \qquad $p_{m}=r_{m-1}+\mu_{m-1} p_{m-1}$\\
+	12:\qquad else\\
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\begin{tabular}{l}
+	13:\qquad \qquad $p_{m}=r_{0}$\\
+	14:\qquad end if\\
+	15:\qquad $q_{m}=A p_{m}$\\
+	16:\qquad $\xi_{m}=\rho /\left(p_{m}^{T} q_{m}\right)$\\
+	17:\qquad $x^{(m)}=x^{(m-1)}+\xi_{m} p_{m}$\\
+	18:\qquad $r_{m}=r_{m-1}-\xi_{m} q_{m}$\\
+	19:\qquad relres $=\left\|r_{m}\right\|_{2} / \beta$\\
+	20:\qquad if relres $<\varepsilon$ then\\
+	21:\qquad \qquad 停止迭代,输出近似解$x^{(m)}$\\
+	22:\qquad end if\\
+	23:\qquad $\rho_{0}=\rho$\\
+	24:end for\\
+	25:if relres $<\varepsilon$ then\\
+	26:\qquad 输出近似解$x^{(m)}$及相关信息\\
+	27:else\\
+	28:\qquad 输出算法失败信息
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\begin{tabular}{l}
+	29:end if\\
+	\hline
+\end{tabular}
+CG算法的每个迭代步的主要运算为一个矩阵向量乘积和两个向量内积;
+\end{frame}
+
+\section{收敛性分析}
+\begin{frame}
+
+
+{\color{blue}\Large CG算法的收敛性}
+
+\quad
+
+\normalsize
+设$x_{*}$是解析解,$x^{(m)}$是CG算法在$x^{(0)}+\mathcal{K}_{m}$中找到的近似解,即
+$$
+x^{(m)}=\arg \min _{x \in x^{(0)}+\mathcal{K}_{m}}\left\|x-x_{*}\right\|_{A}
+$$
+记$\mathbb{P}_{k}$为所次数不超过$k$的多项式的集合.对任意$x \in x^{(0)}+\mathcal{K}_{m}$,存在$p(t) \in \mathbb{P}_{m-1}$,使得
+$$
+x=x^{(0)}+p(A) r_{0}
+$$
+于是有
+$$
+x-x_{*}=\varepsilon_{0}+p(A)\left(b-A x^{(0)}\right)=\varepsilon_{0}+p(A)\left(A x_{*}-A x^{(0)}\right) \triangleq q(A) \varepsilon_{0}
+$$
+其中$\varepsilon_{0}=x^{(0)}-x_{*}$多项式$q(t)=1-t p(t) \in \mathbb{P}_{m}$且q(0) = 1.所以
+$$
+\left\|x-x_{*}\right\|_{A}^{2}=\varepsilon_{0}^{T} q(A)^{T} A q(A) \varepsilon_{0}
+$$
+\end{frame}
+
+\begin{frame}
+设$A=Q \Lambda Q^{T}, \Lambda=\operatorname{diag}\left(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n}\right)$,记$y=\left[y_{1}, y_{2}, \ldots, y_{n}\right]^{T} \triangleq Q^{T} \varepsilon_{0}$.
+$$
+\begin{aligned}
+\left\|x^{(m)}-x_{*}\right\|_{A}^{2} &=\min _{x \in x^{(0)}+\mathcal{K}_{m}}\left\|x-x_{*}\right\|_{A}^{2} \\ 
+&=\min _{q \in \mathbb{P}_{m}, q(0)=1} \varepsilon_{0}^{T} Q q(\Lambda)^{T} \Lambda q(\Lambda) Q^{T} \varepsilon_{0} \\ 
+&=\min _{q \in \mathbb{P}_{m}, q(0)=1} \sum_{i=1}^{n} y_{i}^{2} \lambda_{i} q\left(\lambda_{i}\right)^{2}\\
+&\leq \min _{q \in \mathbb{P}_{m}, q(0)=1} \max _{1 \leq i \leq n}\left\{q\left(\lambda_{i}\right)^{2}\right\} \sum_{i=1}^{n} y_{i}^{2} \lambda_{i}\\
+&=\min _{q \in \mathbb{P}_{m}, q(0)=1} \max _{1 \leq i \leq n}\left\{q\left(\lambda_{i}\right)^{2}\right\} y^{T} \Lambda y\\
+&=\min _{q \in \mathbb{P}_{m}, q(0)=1} \max _{1 \leq i \leq n}\left\{q\left(\lambda_{i}\right)^{2}\right\} \varepsilon_{0}^{T} A \varepsilon_{0}\\
+&=\min _{q \in \mathbb{P}_{m}, q(0)=1} \max _{1 \leq i \leq n}\left\{q\left(\lambda_{i}\right)^{2}\right\}\left\|\varepsilon_{0}\right\|_{A}^{2}
+\end{aligned}
+$$
+\end{frame}
+
+\begin{frame}
+\begin{lemma}
+设$x^{(m)}$是CG算法迭代$m$步后得到的近似解.则
+$$
+\frac{\left\|x^{(m)}-x_{*}\right\|_{A}}{\left\|x^{(0)}-x_{*}\right\|_{A}} \leq \min _{q \in \mathbb{P}_{m}, q(0)=1} \max _{1 \leq i \leq n}\left|q\left(\lambda_{i}\right)\right|
+$$
+\end{lemma}
+当$A$的特征值不知道时,可用区间代替,即
+$$
+\frac{\left\|x^{(m)}-x_{*}\right\|_{A}}{\left\|x^{(0)}-x_{*}\right\|_{A}} \leq \min _{q \in \mathbb{P}_{m}, q(0)=1} \max _{\lambda_{n} \leq \lambda \leq \lambda_{1}}|q(\lambda)|
+$$
+
+由Chebyshev多项式的最佳逼近性质可知,上式的解为
+$$
+\tilde{q}(t)=\frac{T_{m}\left(\frac{2 t-\left(\lambda_{1}+\lambda_{n}\right)}{\lambda_{1}-\lambda_{n}}\right)}{T_{m}\left(-\frac{\lambda_{1}+\lambda_{n}}{\lambda_{1}-\lambda_{n}}\right)} \Longrightarrow|\tilde{q}(t)| \leq \frac{1}{2}\left(\frac{\sqrt{\kappa(A)}+1}{\sqrt{\kappa(A)}-1}\right)^{m}
+$$
+\end{frame}
+
+\begin{frame}
+\begin{theorem}
+设$A \in \mathbb{R}^{n \times n}$对称正定,$x^{(m)}$是CG算法迭代$m$步后得到的近似解.则
+$$
+\frac{\left\|x^{(m)}-x_{*}\right\|_{A}}{\left\|x^{(0)}-x_{*}\right\|_{A}} \leq 2\left(\frac{\sqrt{\kappa(A)}-1}{\sqrt{\kappa(A)}+1}\right)^{m}
+$$
+其中$\kappa(A)=\lambda_{1} / \lambda_{n}$
+\end{theorem}
+\end{frame}
+
+
+\begin{frame}
+
+
+{\color{blue}\Large CG算法的超收敛性}
+
+\quad
+
+\normalsize
+如果我们能够获得$A$的更多的特征值信息,则能得到更好的误差限.
+\begin{theorem}
+设$A \in \mathbb{R}^{n \times n}$对称正定,特征值为
+$$
+0<\lambda_{n} \leq \cdots \leq \lambda_{n+1-i} \leq b_{1} \leq \lambda_{n-i} \leq \cdots \leq \lambda_{j+1} \leq b_{2} \leq \lambda_{j} \leq \cdots \leq \lambda_{1}
+$$
+则当$m \geq i+j$时有
+$$
+\frac{\left\|x^{(m)}-x_{*}\right\|_{A}}{\left\|x^{(0)}-x_{*}\right\|_{A}} \leq 2\left(\frac{b-1}{b+1}\right)^{m-i-j} \max _{\lambda \in\left[b_{1}, b_{2}\right]}\left\{\prod_{k=n+1-i}^{n}\left(\frac{\lambda-\lambda_{k}}{\lambda_{k}}\right) \prod_{k=1}^{j}\left(\frac{\lambda_{k}-\lambda}{\lambda_{k}}\right)\right\}
+$$
+其中$b=\left(b_{2} / b_{1}\right)^{\frac{1}{2}} \geq 1$.
+\end{theorem}
+由此可知,当$b_1$与$b_2$非常接近时,迭代$i+j$步后,$CG$收敛会非常快!
+\end{frame}
+
+\begin{frame}
+\begin{corollary}
+设$A$对称正定,特征值为
+$$
+\begin{aligned} 0<\delta \leq \lambda_{n} \leq \cdots \leq \lambda_{n+1-i} \leq \\ 1-\varepsilon \leq \lambda_{n-i} \leq \cdots \leq \lambda_{j+1} & \leq 1+\varepsilon \\ & \leq \lambda_{j} \leq \cdots \leq \lambda_{1} \end{aligned}
+$$
+则当$m \geq i+j$时有
+\begin{align*}
+	\frac{\left\|x^{(m)}-x_{*}\right\|_{A}}{\left\|x^{(0)}-x_{*}\right\|_{A}} \leq 2\left(\frac{1+\varepsilon}{\delta}\right)^{i} \varepsilon^{m-i-j}
+	\tag{7.16}
+\end{align*}
+\end{corollary}
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}\Large GMRES算法的收敛性}
+
+\quad
+
+\normalsize
+正规矩阵情形:{\color{blue}$A=U \Lambda U^{*}$}
+\begin{theorem}
+设$A \in \mathbb{R}^{n \times n}$是正规矩阵,$x^{(m)}$是GMRES得到的近似解,则
+\begin{align*}
+	\frac{\left\|b-A x^{(m)}\right\|_{2}}{\left\|r_{0}\right\|_{2}} \leq \min _{q \in \mathbb{P}_{m}, q(0)=1} \max _{1 \leq i \leq n}\left|q\left(\lambda_{i}\right)\right|
+	\tag{7.17}
+\end{align*}
+需要指出的是,上界(7.17)是紧凑的.
+
+设$\Omega \subset \mathbb{C}$是包含$A$的所有特征值的一个区域(不能包含原点),则
+$$
+\frac{\left\|b-A x^{(m)}\right\|_{2}}{\left\|r_{0}\right\|_{2}} \leq \min _{q \in \mathbb{P}_{k}, q(0)=1} \max _{\lambda \in \Omega}|q(\lambda)|
+$$
+通常$\Omega$必须是连通的,否则求解非常困难,即使两个区间的并都没法求解.
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+
+
+{\color{blue}\Large 非正规情形}
+
+\quad
+
+\normalsize
+{\color{blue}设$A \in \mathbb{R}^{n \times n}$可对角化},即$A=X \Lambda X^{-1}$，则
+\begin{align*}
+	\left\|b-A x^{(k)}\right\|_{2}=\min _{x \in x^{(0)}+\mathcal{K}_{k}\left(A, r_{0}\right)}\|b-A x\|_{2}=\min _{q \in \mathbb{P}_{k}, q(0)=1}\left\|q(A) r_{0}\right\|_{2}
+	\tag{7.18}
+\end{align*}
+相类似地,我们可以得到下面的结论.
+\begin{theorem}
+设$A=X \Lambda X^{-1}$其中$X \in \mathbb{C}^{n \times n}$非奇异,$\Lambda$是对角矩阵,$x^{(k)}$是GMRES算法得到的近似解,则
+\begin{align*}
+	\frac{\left\|b-A x^{(k)}\right\|_{2}}{\left\|r_{0}\right\|_{2}} & \leq\|X\|_{2}\left\|X^{-1}\right\|_{2} \min _{q \in P_{k}, q(0)=1} \max _{1 \leq i \leq n}\left|q\left(\lambda_{i}\right)\right| \\ &=\kappa(X) \min _{q \in P_{k}, q(0)=1} \max _{1 \leq i \leq n}\left|q\left(\lambda_{i}\right)\right|
+	\tag{7.19}
+\end{align*}
+其中$\kappa(X)$是$X$的谱条件数.
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\qquad 如果$A$接近正规,则$\kappa(X) \approx 1$.此时上界(7.19)在一定程度上能描述GMRES的收敛速度.
+
+\qquad 当如果$X$远非正交,则$\kappa(X)$会很大,此时该上界就失去实际意义了.
+
+\qquad 需要指出的是,上面的分析并不意味着非正规矩阵就一定比正规矩阵收敛慢.事实上,对任意一个非正规矩阵,总存在一个相应的正规矩阵,使得GMRES算法的收敛速度是一样的.
+
+\qquad 虽然GMRES算法的收敛性与系数矩阵的特征值有关,但显然并不仅仅取决于特征值的分布.事实上,我们有下面的结论.
+
+\begin{theorem}
+对于任意给定的特征值分布和一条不增的收敛曲线,则总存在一个矩阵$A$和一个右端项$b$,使得$A$具有指定的特征值分布,且GMRES算法的收敛曲线与给定的收敛曲线相同.
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+{\color{blue}例}\quad 考虑线性方程组$A x=b$其中
+$$
+A=\left[\begin{array}{ccccc}{0} & {1} & {} & {} \\ {} & {0} & {1} \\ {} & {\ddots} & {\ddots} & {} \\ {} & {} & {} & {0} & {1} \\ {a_{0}} & {a_{1}} & {a_{2}} & {\cdots} & {a_{n-1}}\end{array}\right], \quad b=e_{1}
+$$
+当$a_{0} \neq 0$时,$A$非奇异.易知,$A$的特征值多项式为
+$$
+p(x)=\lambda^{n}-a_{n-1} \lambda^{n-1}-a_{n-2} \lambda^{n-2}-\cdots-a_{1} \lambda-a_{0}
+$$
+方程组的精确解为
+$$
+x=\left[-a_{1} / a_{0}, 1,0, \ldots, 0\right]^{\top}
+$$
+以零向量为迭代初值,则GMRES迭代到第$n$步时才收敛. (前$n-1$步残量范数不变)
+\end{frame}
+
+
+\begin{frame}
+
+
+{\color{blue}\Large 如果A不可以对角化}
+
+\quad
+
+\normalsize
+
+我们在分析GMRES算法的收敛性时,通常会想办法用一个新的极小化问题来近似原来的极小化问题(7.18).当然,这个新的极小化问题应该是比较容易求解的.
+
+事实上,我们有
+$$
+\begin{aligned} 
+\frac{\left\|b-A x^{(k)}\right\|_{2}}{\left\|r_{0}\right\|_{2}} &=\frac{_{q \in \mathbb{P}_{k}, q(0)=1}{\min }\left\|q(A) r_{0}\right\|_{2}}{\left\|r_{0}\right\|_{2}} \\ 
+& \leq \max _{\|v\|_{2}=1} \min _{q \in P_{k}, q(0)=1}\|q(A) v\|_{2} \\
+& \leq \min _{q \in \mathbb{P}_{k}, q(0)=1}\|q(A)\|_{2} \end{aligned}
+$$
+不等式(7.20)右端代表的是在最坏情况下的GMRES收敛性,而且是紧凑的,即它是所能找到的不依赖于$r_{0}$的最好上界.但我们仍然不清楚,到底是$A$的那些性质决定着这个上界[?]
+\end{frame}
+
+\begin{frame}
+可以证明,当A是正规矩阵时,上界(7.20)和(7.21)是相等的[? ?].但是,对于大多数非正规矩阵而言,这两者是否相等或者非常接近,迄今仍不太清楚
+
+最后需要指出的是,算法的收敛性也依赖于迭代初值和右端项.所以上定理中的上界描述的都是最坏情况下的收敛速度.也就是说,在实际计算中,算法的收敛速度可能会比预想的要快得多.
+\end{frame}
+\section{其它Krylov子空间迭代算法}
+\begin{frame}
+{其它Krylov子空间迭代算法}
+
+\begin{tabular}{lllll}
+	\hline
+	&|&CG (1952)&|&对称正定,正交投影法(Galerkin)\\
+	对称&|&MINRES (1975&|&对称不定,斜投影法(Petrov-Galerkin)\\
+	&|&SYMMLQ (1975)&|&对称不定\\
+	&|&SQMR (1994)&|&对称不定\\
+	\hline
+	&|&FOM (1981)&|&正交投影法, Arnoldi\\
+	&|&GMRES (1984)&|&斜投影法(Petrov-Galerkin), Arnoldi\\
+	&|&BiCG (1976)&|&双正交(biorthogonalization\\
+	非对称&|&QMR (1991)&|&双正交(biorthogonalization\\
+	&|&CGS (1989)&|&Transpose free\\
+	&|&BiCGStab (1992)Tr&|&Transpose free, smoother convergence than CGS\\
+	&|&TFQMR (1993)&|&Transpose free, smoother convergence than CGS\\
+	&|&FGMRES (1993)&|&{}\\
+	\hline
+	正规方程&|&CGLS (1982)&|&最小二乘(法方程)\\
+	&|&LSQR (1982)&|&最小二乘(法方程)\\
+	\hline
+\end{tabular}
+\end{frame}
+
+\end{document}
