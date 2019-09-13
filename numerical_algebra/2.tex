@@ -151,24 +151,16 @@
 
 \begin{document}
 
-\title[数值线性代数]{{\small\leftline{数值线性代数———}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-~~~~~~~~~~~} \\
-矩阵计算
-}
 
-\author[]{~~潘建瑜~~}
+\title[]{第二节~~线性方程组的直接解法}
 
-\institute[湘潭大学数学系]
+\author[]{魏华祎，易年余，陆讯}
 
-\date[\today]
+\institute{湘潭大学数学与计算科学学院}
 
-%\pgfdeclareimage[height=1cm]{institution-logo}{figures/xtu.pdf}
-
-%\logo{\pgfuseimage{institution-logo}}
-
+\date{\today}
 
 \frame[plain]{\titlepage}
-
 
 \AtBeginSection[]{
 
@@ -180,10 +172,12 @@
 
   }
 }
+
 \section{Gauss 消去法和 LU 分解}
 
 \begin{frame}
 \frametitle{线性方程组的求解方法}
+
 $\bullet${\blue{直接法}}: $LU$ 分解, $Cholesky$ 分解, ...
 
 $\bullet${\blue{迭代法}}: 古典迭代法, $Krylov$ 子空间迭代法
@@ -712,9 +706,7 @@ with complete pivoting);
 \end{frame}
 
 
-\begin{frame}
-\frametitle{第 $k$ 步时, 如何选取置换矩阵 $P^{(k)}_L$ 和 $P^{(k)}_R$ ？}
-\begin{frame}
+\begin{frame}{第 $k$ 步时, 如何选取置换矩阵 $P^{(k)}_L$ 和 $P^{(k)}_R$ ？}
 \begin{table}  
 	%\caption{设置表格总长}  
 	\begin{tabular*}{16cm}{ll}  
@@ -1003,7 +995,7 @@ $\bullet$Rook 策略: 由 Ashcraft, Grimes 和 Lewis 于 1998 年提出, 整体�
 分选主元类似, 但在选主元时加了一层迭代, 从而能提供更高的精度
 
 
-{\green{目前大部分软件都采用部分选主元块 $LDL^{\top}$分解算法}}
+{\blue{目前大部分软件都采用部分选主元块 $LDL^{\top}$分解算法}}
 \end{frame}
 
 \begin{frame}
@@ -1471,8 +1463,7 @@ $x_{*}=\left[\begin{array}{l}{1} \\ {1}\end{array}\right]$,任何合理的直接
 这个界与 (2.16) 或 (2.18) 相差约 $\gamma$倍.
 \end{frame}
 
-\begin{frame}
-\frametitle{相对条件数}
+\begin{frame}{相对条件数}
 为了得到更好误差界, 我们引入相对条件数$\kappa_{cr}(A)$,即
 \begin{equation}
 \kappa_{c r}(A) \triangleq\left\|\left|A^{-1}\right| \cdot|A|\right\|
@@ -1487,8 +1478,7 @@ $x_{*}=\left[\begin{array}{l}{1} \\ {1}\end{array}\right]$,任何合理的直接
 \end{equation}
 \end{frame}
 
-\begin{frame}
-\frametitle{相对条件数}
+\begin{frame}{相对条件数}
 若 $δb = 0$, 则有
 \begin{equation}
 \|\delta x\|=\||\delta x|\| \leq \varepsilon\left\|\left|A^{-1}\right| \cdot|A| \cdot|\hat{x}|\right\| \leq \varepsilon\left\|\left|A^{-1}\right| \cdot|A|\right\| \cdot\|\hat{x}\|
@@ -1523,19 +1513,19 @@ $x_{*}=\left[\begin{array}{l}{1} \\ {1}\end{array}\right]$,任何合理的直接
 	其中 $r = b − A\hat{x}$
 \end{theorem}
 
-
 更多关于数值计算的稳定性和矩阵扰动分析方面的知识, 可以参考相关资料.
 \end{frame}
+
 \section{误差分析}
-\begin{frame}
-\frametitle{4 \quad 误差分析}
+
+\begin{frame}{4 \quad 误差分析}
 4.1 \qquad$LU$ 分解
 
 4.2 \qquad$LU$ 分解的实现
-
 \end{frame}
-\begin{frame}
-\frametitle{4.1 \quad LU 分解的舍入误差分析}
+
+
+\begin{frame}{4.1 \quad LU 分解的舍入误差分析}
 关于 LU 分解的舍入误差分析, 我们有下面的结果.
 
 \begin{theorem}
@@ -1551,8 +1541,7 @@ $x_{*}=\left[\begin{array}{l}{1} \\ {1}\end{array}\right]$,任何合理的直接
 \end{theorem}
 \end{frame}
 
-\begin{frame}
-\frametitle{4.2 \quad Gauss 消去法的舍入误差分析}
+\begin{frame}{4.2 \quad Gauss 消去法的舍入误差分析}
 \begin{lemma}[High02] 设 $\hat{y}$ 和 $\hat{x}$ 分别是由向前回代和向后回代得到的数值解, 则
 	\begin{equation}
 	\begin{array}{ll}{(L+\delta L) \hat{y}=b,} & {|\delta L| \leq \gamma_{n}|L|} \\ {(U+\delta U) \hat{x}=\hat{y},} & {|\delta U| \leq \gamma_{n}|U|}\end{array}
@@ -1569,8 +1558,8 @@ $x_{*}=\left[\begin{array}{l}{1} \\ {1}\end{array}\right]$,任何合理的直接
 \end{frame}
 
 \section{解的改进和条件数估计}
-\begin{frame}
-\frametitle{5 \quad 解的改进和条件数估计}
+
+\begin{frame}{5 \quad 解的改进和条件数估计}
 5.1 \qquad 高精度运算
 
 5.2 \qquad 矩阵元素缩放 (Scaling)
@@ -1578,24 +1567,20 @@ $x_{*}=\left[\begin{array}{l}{1} \\ {1}\end{array}\right]$,任何合理的直接
 5.3 \qquad 迭代改进法
 \end{frame}
 
-\begin{frame}
-\frametitle{5.1 \quad 高精度运算}
+\begin{frame}{5.1 \quad 高精度运算}
 在计算中, 尽可能采用高精度的运算.
 
 比如, 原始数据是单精度的, 但在计算时都采用双精度运算, 或者更高精度的运算. 但更高精度的运算会带来更大的开销.
 \end{frame}
 
-\begin{frame}
-\frametitle{5.2 \quad 矩阵元素缩放 (Scaling)}
+\begin{frame}{5.2 \quad 矩阵元素缩放 (Scaling)}
 如果 A 的元素在数量级上相差很大, 则在计算过程中很可能会出现大数
 与小数的加减运算, 这样就可能会引入更多的舍入误差. 为了避免由于这
 种情况而导致的舍入误差, 我们可以在求解之前先对矩阵元素进行缩放
 (Scaling), 即在矩阵两边同时乘以两个适当的对角矩阵.
-
 \end{frame}
 
-\begin{frame}
-\frametitle{矩阵元素缩放 (Scaling)}
+\begin{frame}{矩阵元素缩放 (Scaling)}
 {\bfseries 例} 考虑线性方程组
 \begin{equation}
 \left[\begin{array}{ccc}{-4000} & {2000} & {2000} \\ {2000} & {0.78125} & {0} \\ {2000} & {0} & {0}\end{array}\right]\left[\begin{array}{l}{x_{1}} \\ {x_{2}} \\ {x_{3}}\end{array}\right]=\left[\begin{array}{c}{400} \\ {1.3816} \\ {1.9273}\end{array}\right]
@@ -1614,8 +1599,7 @@ D A D y=D b
 最后令$\tilde{x}=D y$, 即可求得比较精确的数值解.
 \end{frame}
 
-\begin{frame}
-\frametitle{5.3 \quad 迭代改进法}
+\begin{frame}{5.3 \quad 迭代改进法}
 设近似解 $\hat{x}$, 残量$ r = b − A\hat{x}$. 当 $\hat{x}$ 没达到精度要求时, 可以考虑方程$Az = r$. 如果$ z $该方程的精确解, 则
 \begin{equation}
 A(\hat{x}+z)=A \hat{x}+A z=(b-r)+r=b
@@ -1627,8 +1611,7 @@ A(\hat{x}+z)=A \hat{x}+A z=(b-r)+r=b
 这就是通过迭代来提高解的精度.
 \end{frame}
 
-\begin{frame}
-\frametitle{迭代改进法}
+\begin{frame}{迭代改进法}
 \begin{table}  
 	%\caption{设置表格总长}  
 	\begin{tabular*}{16cm}{ll}  
@@ -1647,8 +1630,7 @@ A(\hat{x}+z)=A \hat{x}+A z=(b-r)+r=b
 \end{table}
 \end{frame}
 
-\begin{frame}
-\frametitle{迭代改进法}
+\begin{frame}{迭代改进法}
 由于每次迭代只需计算一次残量和求解两个三角线性方程组, 因此运算
 量为 $O(n^2)$. 所以相对来讲还是比较经济的.
 
@@ -1658,4 +1640,5 @@ A(\hat{x}+z)=A \hat{x}+A z=(b-r)+r=b
 法可以有效改进解的精度, 最后达到机器精度. 但 $ε_uκ_∞(A) ≥ 1$ 时,
 一般没什么效果. 这里 $ε_u$ 表示机器精度.
 \end{frame}
+
 \end{document}

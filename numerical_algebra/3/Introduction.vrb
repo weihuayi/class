@@ -1,8 +1,0 @@
-\frametitle{code}
-\begin{lstlisting}
-int main()
-{
-^^Istd::cout<< " 蓝颜色表示强调，不表示错误。so I succeed！"<<std::endl;
-^^Ireturn 0;
-}
-\end{lstlisting}

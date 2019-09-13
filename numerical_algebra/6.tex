@@ -150,25 +150,11 @@
 \renewcommand\tablename{\hei{表}}
 \input{pptheader.tex}
 \begin{document}
-\title[数值线性代数]{{\small\leftline{数值线性代数———}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-~~~~~~~~~~~} \\
-矩阵计算
-}
 
-
-
-
-\author[]{~~潘建瑜~~}
-
-\institute[湘潭大学数学系]
-
-\date[\today]
-
-%\pgfdeclareimage[height=1cm]{institution-logo}{figures/xtu.pdf}
-
-%\logo{\pgfuseimage{institution-logo}}
-
-
+\title[]{第六节~~线性方程组的迭代解法}
+\author[]{魏华祎，易年余，陆讯}
+\institute{湘潭大学数学与计算科学学院}
+\date{\today}
 \frame[plain]{\titlepage}
 
 
@@ -609,7 +595,7 @@ $$
 下面我们介绍一种适合并行计算的更新顺序：{\color{blue}红黑排序}，即将二维网络点依次做红黑记号，如右图\\
 	在计算过程中,对未知量的值进行更新时,我们可以先更新红色节点,此时所使用的只是黑色节点的数据,然后再更新黑色节点,这时使用的是红色节点的数据.于是我们得到红黑排序G-S迭代方法.
 \begin{figure}[h]	
-\includegraphics[width=0.3\textwidth]{figurest/figure_1.png} 
+\includegraphics[width=0.3\textwidth]{figures/6-1.png} 
 \end{figure}
 \end{frame}
 
@@ -801,7 +787,7 @@ A=\left[\begin{array}{cccc}{A_{11}} & {A_{12}} & {\cdots} & {A_{1 p}} \\ {A_{21}
 $$
 设$A=D-L-U$,其中$D,-L,-U$分别是A的快对角，块严格下三角矩阵和块严格上三角矩阵。则相应的分块Jacobi,分块Gauss-Seidel和分块SOR算法分别为
 \begin{figure}[h]
-\includegraphics[width=0.3\textwidth]{figurest/figure_2.png} 
+\includegraphics[width=0.3\textwidth]{figures/6-2.png} 
 \end{figure}
 \end{frame}
 
@@ -1013,7 +999,7 @@ $$
 
 \begin{figure}[h]
 \centering 
-\includegraphics[width=1\textwidth]{figurest/figure_3.png} 
+\includegraphics[width=1\textwidth]{figures/6-3.png} 
 \end{figure}
 
 \begin{frame}

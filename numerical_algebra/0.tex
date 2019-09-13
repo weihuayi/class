@@ -153,23 +153,14 @@
 
 \begin{document}
 
-\title[数值线性代数]{{\small\leftline{数值线性代数———}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-~~~~~~~~~~~} \\
-矩阵计算
-}
+\title{第零节~~数值代数简介}
 
+\author[]{魏华祎，易年余，陆讯}
 
+\institute{湘潭大学数学与计算科学学院}
 
+\date{\today}
 
-\author[]{~~易年余~~}
-
-\institute[湘潭大学数学系]
-
-\date[\today]
-
-%\pgfdeclareimage[height=1cm]{institution-logo}{figures/xtu.pdf}
-
-%\logo{\pgfuseimage{institution-logo}}
 
 
 \frame[plain]{\titlepage}
@@ -179,7 +170,7 @@
 
   \frame<beamer>{ 
 
-    \frametitle{内容纲要}   
+    \frametitle{数值代数简介}   
 
     \tableofcontents[currentsection] 
 
@@ -190,47 +181,52 @@
 \begin{frame}
 \frametitle{课程主要内容}
 \begin{enumerate}
-	\item { 线性方程组的直接解法}.
-	\item { 线性最小二乘问题的数值算法}.
-	\item { 非对称矩阵的特征值计算}.
-	\item { 对称矩阵特征值计算与奇异值分解}.
-	\item { 线性方程组迭代算法}.
-	\item { 特征值问题的迭代算法 (部分特征值和特征向量)}. 
-	\item { 稀疏矩阵计算}.  
+	\item 线性方程组的直接解法.
+	\item 线性最小二乘问题的数值算法.
+	\item 非对称矩阵的特征值计算.
+	\item 对称矩阵特征值计算与奇异值分解.
+	\item 线性方程组迭代算法.
+	\item 特征值问题的迭代算法 (部分特征值和特征向量). 
+	\item 稀疏矩阵计算.  
 \end{enumerate}
 \end{frame}
 
 \begin{frame}
 \frametitle{主要参考资料}
 \begin{enumerate}
-	\item { G. H. Golub and C. F. van Loan, “Matrix Computations (4th),” 2013.对应中文版为:《矩阵计算》(第三版), 袁亚湘等译, 2001.}.
+    \item { 潘建瑜, 矩阵计算 / 数值线性代数讲义， http://math.ecnu.edu.cn/~jypan/Teaching/MatrixComp/.}
 	\item { J. W. Demmel, “Applied Numerical Linear Algebra,” 1997.对应中文版为:《应用数值线性代数》, 王国荣译, 2007.}.
+	\item { G. H. Golub and C. F. van Loan, “Matrix Computations (4th),” 2013.对应中文版为:《矩阵计算》(第三版), 袁亚湘等译, 2001.}.
 	\item { L. N. Trefethen and D. Bau, III, “Numerical Linear Algebra,” 1997.对应中文版为:《数值线性代数》, 陆金甫等译, 2006.}.
 	\item { 徐树方, “矩阵计算的理论与方法,” 北京大学出版社, 1995.}.
 	\item { 曹志浩, “数值线性代数,” 复旦大学出版社, 1996.}. 
 \end{enumerate}
-
-课程主页：
-
-\qquad  http://math.ecnu.edu.cn/~jypan/Teaching/MatrixComp/
-
 \end{frame}
 
 
 \section{引言}
+
 \begin{frame}
 \frametitle{引言}
-计算数学, 也称 数值分析 或 计算方法.
+计算数学, 也称 {\bf 数值分析} 或 {\bf 计算方法}.
+
+1947 年 Von Neumann 和 Goldstine 在《美国数学会通报》发表了题为“高阶矩阵的数值
+求逆”的著名论文, 开启了现代计算数学的研究.
 
 
-1947 年 Von Neumann 和 Goldstine 在《美国数学会通报》发表了题为“高阶矩阵的数值求逆”的著名论文, 开启了现代计算数学的研究
-
-
-一般来说, 计算数学主要研究如何求出数学问题的近似解 (数值解), 包括算法的设计与分析 (收敛性, 稳定性, 复杂性等)
+一般来说, 计算数学主要研究如何求出数学问题的近似解 (数值解), 包括算法的设计与分
+析 (收敛性, 稳定性, 复杂性等)
 	
 计算数学主要研究内容:
 	
-数值逼近, 数值微积分, 数值代数, 微分方程数值解, 最优化等
+\begin{enumerate}
+    \item 数值逼近
+    \item 数值微积分
+    \item 数值代数
+    \item 微分方程数值解
+    \item 最优化
+    \item ...
+\end{enumerate}
 \end{frame}
 
 \begin{frame}

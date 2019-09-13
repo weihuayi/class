@@ -1,1 +1,22 @@
 .ipynb_checkpoints
+
+ *.soc 
+ *.ps 
+ *.dvi 
+ *.aux 
+ *.toc 
+ *.idx 
+ *.ind 
+ *.ilg 
+ *.log 
+ *.out 
+ *~ 
+ *.tid 
+ *.tms 
+ *.pdf 
+ *.bak 
+ *.blg 
+ *.bbl 
+ *.gz 
+ *.snm 
+ *.nav
