@@ -7,3 +7,6 @@
 [submodule "pythondata/ref/pydata-book"]
 	path = pythondata/ref/pydata-book
 	url = https://github.com/wesm/pydata-book.git
+[submodule "pythondata/ref/MindMap_ZOE"]
+	path = pythondata/ref/MindMap_ZOE
+	url = https://github.com/woaielf/MindMap_ZOE.git
