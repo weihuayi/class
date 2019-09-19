@@ -42,13 +42,13 @@ $ sudo apt install git            # 版本控制软件
 $ sudo apt install python3        # Python3 自带解释器
 $ sudo apt install python3-pip    # Python3 软件包安装、卸载和升级管理器.
 $ sudo apt install python3-tk     # Python interface to Tcl/Tk used by matplotlib 
-$ sudo apt install ipython3       # 增强 Python3 交互解释器
 $ sudo apt install spyder3        # 集成开发环境
 $ sudo -H pip3 install numpy          # 多维数组模块
 $ sudo -H pip3 install scipy          # 科学计算模块 
-$ sudo -H install matplotlib     # 可视化模块
-$ sudo -H install pandas         # 数据分析和清洗模块
+$ sudo -H pip3 install matplotlib     # 可视化模块
+$ sudo -H pip3 install pandas         # 数据分析和清洗模块
 $ sudo -H pip3 install jupyter # Jupyter-notebook 
+$ sudo -H pip3 install ipython
 $ sudo -H pip3 uninstall prompt-toolkit #解决冲突问题
 $ sudo -H pip3 install jupyter_contrib_nbextensions # Jupyter notebook 扩展功能模块
 $ sudo jupyter contrib nbextension install # 把扩展功能模块安装入 Jupyter
