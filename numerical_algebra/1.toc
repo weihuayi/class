@@ -1,0 +1,6 @@
+\beamer@sectionintoc {1}{线性空间与内积空间}{2}{0}{1}
+\beamer@sectionintoc {2}{向量范数与矩阵范数}{6}{0}{2}
+\beamer@sectionintoc {3}{矩阵与投影}{18}{0}{3}
+\beamer@sectionintoc {4}{矩阵标准型}{32}{0}{4}
+\beamer@sectionintoc {5}{几类特殊矩阵}{39}{0}{5}
+\beamer@sectionintoc {6}{Kronecker 积}{50}{0}{6}

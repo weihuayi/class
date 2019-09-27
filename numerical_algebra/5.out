@@ -1,0 +1,16 @@
+\BOOKMARK [2][]{Outline0.1}{Jacobi迭代}{}% 1
+\BOOKMARK [2][]{Outline0.2}{Raylaogh商迭代}{}% 2
+\BOOKMARK [2][]{Outline0.3}{对称QR迭代}{}% 3
+\BOOKMARK [2][]{Outline0.4}{分而治之法}{}% 4
+\BOOKMARK [2][]{Outline0.5}{对分法和逆迭代}{}% 5
+\BOOKMARK [2][]{Outline0.6}{奇异值分解}{}% 6
+\BOOKMARK [3][]{Outline0.6.1.53}{二对角化}{Outline0.6}% 7
+\BOOKMARK [3][]{Outline0.6.2.63}{Golub-Kahan SVD算法}{Outline0.6}% 8
+\BOOKMARK [3][]{Outline0.6.3.65}{dqds算法}{Outline0.6}% 9
+\BOOKMARK [3][]{Outline0.6.4.72}{Jacobi算法}{Outline0.6}% 10
+\BOOKMARK [2][]{Outline0.7}{扰动分析}{}% 11
+\BOOKMARK [3][]{Outline0.7.1.78}{特征值与Rayleigh商}{Outline0.7}% 12
+\BOOKMARK [3][]{Outline0.7.2.84}{对称矩阵特征值的扰动分析}{Outline0.7}% 13
+\BOOKMARK [3][]{Outline0.7.3.88}{对称矩阵特征向量的扰动}{Outline0.7}% 14
+\BOOKMARK [3][]{Outline0.7.4.93}{Rayleigh商逼近}{Outline0.7}% 15
+\BOOKMARK [3][]{Outline0.7.5.95}{相对扰动分析}{Outline0.7}% 16
