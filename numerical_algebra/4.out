@@ -1,0 +1,21 @@
+\BOOKMARK [2][]{Outline0.1}{幂迭代}{}% 1
+\BOOKMARK [2][]{Outline0.2}{反迭代}{}% 2
+\BOOKMARK [3][]{Outline0.2.1.13}{Rayleigh 商迭代}{Outline0.2}% 3
+\BOOKMARK [2][]{Outline0.3}{正交迭代}{}% 4
+\BOOKMARK [2][]{Outline0.4}{QR迭代}{}% 5
+\BOOKMARK [3][]{Outline0.4.1.23}{算法介绍}{Outline0.4}% 6
+\BOOKMARK [3][]{Outline0.4.2.25}{QR 迭代与幂迭代的关系}{Outline0.4}% 7
+\BOOKMARK [3][]{Outline0.4.3.27}{QR迭代与反迭代的关系}{Outline0.4}% 8
+\BOOKMARK [3][]{Outline0.4.4.29}{QR 迭代与正交迭代的关系}{Outline0.4}% 9
+\BOOKMARK [3][]{Outline0.4.5.30}{QR迭代的收敛性}{Outline0.4}% 10
+\BOOKMARK [3][]{Outline0.4.6.35}{带位移的QR迭代}{Outline0.4}% 11
+\BOOKMARK [2][]{Outline0.5}{带位移的隐式QR迭代}{}% 12
+\BOOKMARK [3][]{Outline0.5.1.44}{上 Hessenberg 矩阵}{Outline0.5}% 13
+\BOOKMARK [3][]{Outline0.5.2.51}{隐式QR迭代}{Outline0.5}% 14
+\BOOKMARK [3][]{Outline0.5.3.60}{位移的选取}{Outline0.5}% 15
+\BOOKMARK [3][]{Outline0.5.4.73}{收缩Deflation}{Outline0.5}% 16
+\BOOKMARK [2][]{Outline0.6}{特征向量的计算}{}% 17
+\BOOKMARK [2][]{Outline0.7}{广义特征值问题}{}% 18
+\BOOKMARK [3][]{Outline0.7.1.80}{广义Schur分解}{Outline0.7}% 19
+\BOOKMARK [3][]{Outline0.7.2.82}{QZ迭代}{Outline0.7}% 20
+\BOOKMARK [2][]{Outline0.8}{应用：多项式求根}{}% 21

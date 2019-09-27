@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Gauss 消去法和 LU 分解}{2}{0}{1}
+\beamer@sectionintoc {2}{特殊方程组的求解}{37}{0}{2}
+\beamer@sectionintoc {3}{扰动分析}{70}{0}{3}
+\beamer@sectionintoc {4}{误差分析}{84}{0}{4}
+\beamer@sectionintoc {5}{解的改进和条件数估计}{88}{0}{5}

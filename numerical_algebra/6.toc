@@ -1,0 +1,6 @@
+\beamer@sectionintoc {1}{离散Poisson方程}{4}{0}{1}
+\beamer@sectionintoc {2}{定常迭代方法}{18}{0}{2}
+\beamer@sectionintoc {3}{收敛性分析}{42}{0}{3}
+\beamer@sectionintoc {4}{加速算法}{67}{0}{4}
+\beamer@sectionintoc {5}{交替方向与HSS算法}{85}{0}{5}
+\beamer@subsectionintoc {5}{1}{快速Poisson算法}{90}{0}{5}

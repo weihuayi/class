@@ -1,0 +1,8 @@
+\beamer@sectionintoc {1}{引言}{3}{0}{1}
+\beamer@sectionintoc {2}{初等变换矩阵}{8}{0}{2}
+\beamer@sectionintoc {3}{QR分解}{25}{0}{3}
+\beamer@sectionintoc {4}{奇异值分解}{51}{0}{4}
+\beamer@sectionintoc {5}{线性最小二乘问题的求解方法}{63}{0}{5}
+\beamer@sectionintoc {6}{广义逆与最小二乘}{74}{0}{6}
+\beamer@sectionintoc {7}{最小二乘扰动分析}{84}{0}{7}
+\beamer@sectionintoc {8}{最小二乘问题的推广及其应用}{87}{0}{8}
