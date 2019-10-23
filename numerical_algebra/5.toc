@@ -1,7 +1,0 @@
-\beamer@sectionintoc {1}{Jacobi迭代}{2}{0}{1}
-\beamer@sectionintoc {2}{Raylaogh商迭代}{14}{0}{2}
-\beamer@sectionintoc {3}{对称QR迭代}{16}{0}{3}
-\beamer@sectionintoc {4}{分而治之法}{22}{0}{4}
-\beamer@sectionintoc {5}{对分法和逆迭代}{42}{0}{5}
-\beamer@sectionintoc {6}{奇异值分解}{50}{0}{6}
-\beamer@sectionintoc {7}{扰动分析}{76}{0}{7}
