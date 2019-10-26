@@ -1,0 +1,7 @@
+\beamer@sectionintoc {1}{个人简历}{3}{0}{1}
+\beamer@sectionintoc {2}{教学业绩}{5}{0}{2}
+\beamer@sectionintoc {3}{科研业绩}{9}{0}{3}
+\beamer@sectionintoc {4}{公益活动}{20}{0}{4}
+\beamer@sectionintoc {5}{社会服务}{22}{0}{5}
+\beamer@sectionintoc {6}{其它表现}{25}{0}{6}
+\beamer@sectionintoc {7}{总结}{27}{0}{7}
