@@ -21,3 +21,4 @@
  *.snm 
  *.nav
 .~*
+__pycache__
