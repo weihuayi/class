@@ -1,0 +1,5 @@
+homework
+.ipynb_*
+*.term
+.*-jupyter
+*.sage-chat
